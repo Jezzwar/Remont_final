@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakura House — Japońska Kuchnia</title>
+
+  <!-- 2 fonts only: Dela Gothic One (display) · DM Sans (UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400;1,9..40,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#">
+    <span class="nav-logo-jp">桜</span>Sakura House
+  </a>
+  <div class="nav-pill">
+    <a href="#menu">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      Menu
+    </a>
+    <a href="#dostawa">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      Dostawa
+    </a>
+    <a href="#" onclick="openReservation();return false;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Rezerwacje
+    </a>
+  </div>
+  <div class="nav-actions">
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#menu"    onclick="closeMobileMenu()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Menu</a>
+<a href="#" onclick="closeMobileMenu();openReservation();return false;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Rezerwacje</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-blob hero-blob-3"></div>
+  <div class="jp-kanji jp-k1">日</div>
+  <div class="jp-kanji jp-k2">本</div>
+  <div class="jp-kanji jp-k3">桜</div>
+
+  <div class="hero-content">
+    <div class="hero-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg> Otwarte dziś · 11:00 – 22:00</div>
+    <h1 class="hero-title">TWOJE<br><em>AZJATYCKIE</em><br>MARZENIE</h1>
+    <p class="hero-sub">Witamy w miejscu, gdzie każdy talerz staje się prawdziwym dziełem sztuki. Autentyczne smaki, świeże składniki, gotowane z miłością.</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-red">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        ZŁÓŻ ZAMÓWIENIE
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-ring hero-ring-1"></div>
+    <div class="hero-ring hero-ring-2"></div>
+    <img
+      class="hero-img"
+      src="img/hero.png"
+      alt="Łosoś podnoszony pałeczkami"
+      onerror="this.src='';this.style.cssText='width:440px;height:440px;background:#F0C4BA;border-radius:50%;display:block'"
+    >
+    <div class="hero-float-chip chip-1">
+      <div class="chip-dot"></div>
+      <span>+200 zadowolonych klientów</span>
+    </div>
+    <div class="hero-float-chip chip-2">
+      <div class="chip-dot"></div>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <span>Dostawa 30–45 min</span>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<!-- SAKURA DIVIDER -->
+<!-- MENU -->
+<section class="section-wrap" id="menu">
+  <div class="deco-blob deco-blob-menu-1"></div>
+  <div class="deco-blob deco-blob-menu-2"></div>
+  <div class="jp-kanji jp-menu-1">麺</div>
+  <div class="jp-kanji jp-menu-2">味</div>
+  <div class="sec-header reveal">
+    <div>
+      <div class="sec-label"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="14" rx="9" ry="5"/><path d="M3 14c0-2 4-5 9-5s9 3 9 5"/><path d="M8 9V7a4 4 0 018 0v2"/></svg> Nasze dania</div>
+      <h2 class="sec-title">POPULARNE<br>TERAZ</h2>
+    </div>
+    <div class="sec-kanji" aria-hidden="true">食</div>
+  </div>
+  <div class="dishes-grid" id="dishesGrid"></div>
+  <div style="text-align:center;margin-top:40px" class="reveal">
+    <a href="#menu" class="btn-red">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      POKAŻ MENU
+    </a>
+  </div>
+</section>
+
+<!-- SAKURA DIVIDER -->
+<div class="sakura-divider">
+  <div class="sakura-divider-inner">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c0 0-2 3-2 5 0 1.1.9 2 2 2s2-.9 2-2c0-2-2-5-2-5zm4.24 1.76c0 0-3.41.59-4.59 2.41-.68 1-.34 2.3.66 2.98s2.3.34 2.98-.66c1.18-1.82.95-4.73.95-4.73zm3.52 3.52c0 0-3.41-.59-4.59 1.23-.68 1-.34 2.3.66 2.98s2.3.34 2.98-.66c1.18-1.82.95-3.55.95-3.55zM22 12c0 0-3-2-5-2-1.1 0-2 .9-2 2s.9 2 2 2c2 0 5-2 5-2zm-1.76 4.24c0 0-.59-3.41-2.41-4.59-1-.68-2.3-.34-2.98.66s-.34 2.3.66 2.98c1.82 1.18 4.73.95 4.73.95zm-3.52 3.52c0 0 .59-3.41-1.23-4.59-1-.68-2.3-.34-2.98.66s-.34 2.3.66 2.98c1.82 1.18 3.55.95 3.55.95zM12 22c0 0 2-3 2-5 0-1.1-.9-2-2-2s-2 .9-2 2c0 2 2 5 2 5zm-4.24-1.76c0 0 3.41-.59 4.59-2.41.68-1 .34-2.3-.66-2.98s-2.3-.34-2.98.66c-1.18 1.82-.95 4.73-.95 4.73zm-3.52-3.52c0 0 3.41.59 4.59-1.23.68-1 .34-2.3-.66-2.98s-2.3-.34-2.98.66c-1.18 1.82-.95 3.55-.95 3.55zM2 12c0 0 3 2 5 2 1.1 0 2-.9 2-2s-.9-2-2-2c-2 0-5 2-5 2zm1.76-4.24c0 0 .59 3.41 2.41 4.59 1 .68 2.3.34 2.98-.66s.34-2.3-.66-2.98C6.67 7.53 3.76 7.76 3.76 7.76zm3.52-3.52c0 0-.59 3.41 1.23 4.59 1 .68 2.3.34 2.98-.66s.34-2.3-.66-2.98C9.01 3.95 7.28 4.24 7.28 4.24z"/></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c0 0-2 3-2 5 0 1.1.9 2 2 2s2-.9 2-2c0-2-2-5-2-5zm4.24 1.76c0 0-3.41.59-4.59 2.41-.68 1-.34 2.3.66 2.98s2.3.34 2.98-.66c1.18-1.82.95-4.73.95-4.73zm3.52 3.52c0 0-3.41-.59-4.59 1.23-.68 1-.34 2.3.66 2.98s2.3.34 2.98-.66c1.18-1.82.95-3.55.95-3.55zM22 12c0 0-3-2-5-2-1.1 0-2 .9-2 2s.9 2 2 2c2 0 5-2 5-2zm-1.76 4.24c0 0-.59-3.41-2.41-4.59-1-.68-2.3-.34-2.98.66s-.34 2.3.66 2.98c1.82 1.18 4.73.95 4.73.95zm-3.52 3.52c0 0 .59-3.41-1.23-4.59-1-.68-2.3-.34-2.98.66s-.34 2.3.66 2.98c1.82 1.18 3.55.95 3.55.95zM12 22c0 0 2-3 2-5 0-1.1-.9-2-2-2s-2 .9-2 2c0 2 2 5 2 5zm-4.24-1.76c0 0 3.41-.59 4.59-2.41.68-1 .34-2.3-.66-2.98s-2.3-.34-2.98.66c-1.18 1.82-.95 4.73-.95 4.73zm-3.52-3.52c0 0 3.41.59 4.59-1.23.68-1 .34-2.3-.66-2.98s-2.3-.34-2.98.66c-1.18 1.82-.95 3.55-.95 3.55zM2 12c0 0 3 2 5 2 1.1 0 2-.9 2-2s-.9-2-2-2c-2 0-5 2-5 2zm1.76-4.24c0 0 .59 3.41 2.41 4.59 1 .68 2.3.34 2.98-.66s.34-2.3-.66-2.98C6.67 7.53 3.76 7.76 3.76 7.76zm3.52-3.52c0 0-.59 3.41 1.23 4.59 1 .68 2.3.34 2.98-.66s.34-2.3-.66-2.98C9.01 3.95 7.28 4.24 7.28 4.24z"/></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c0 0-2 3-2 5 0 1.1.9 2 2 2s2-.9 2-2c0-2-2-5-2-5zm4.24 1.76c0 0-3.41.59-4.59 2.41-.68 1-.34 2.3.66 2.98s2.3.34 2.98-.66c1.18-1.82.95-4.73.95-4.73zm3.52 3.52c0 0-3.41-.59-4.59 1.23-.68 1-.34 2.3.66 2.98s2.3.34 2.98-.66c1.18-1.82.95-3.55.95-3.55zM22 12c0 0-3-2-5-2-1.1 0-2 .9-2 2s.9 2 2 2c2 0 5-2 5-2zm-1.76 4.24c0 0-.59-3.41-2.41-4.59-1-.68-2.3-.34-2.98.66s-.34 2.3.66 2.98c1.82 1.18 4.73.95 4.73.95zm-3.52 3.52c0 0 .59-3.41-1.23-4.59-1-.68-2.3-.34-2.98.66s-.34 2.3.66 2.98c1.82 1.18 3.55.95 3.55.95zM12 22c0 0 2-3 2-5 0-1.1-.9-2-2-2s-2 .9-2 2c0 2 2 5 2 5zm-4.24-1.76c0 0 3.41-.59 4.59-2.41.68-1 .34-2.3-.66-2.98s-2.3-.34-2.98.66c-1.18 1.82-.95 4.73-.95 4.73zm-3.52-3.52c0 0 3.41.59 4.59-1.23.68-1 .34-2.3-.66-2.98s-2.3-.34-2.98.66c-1.18 1.82-.95 3.55-.95 3.55zM2 12c0 0 3 2 5 2 1.1 0 2-.9 2-2s-.9-2-2-2c-2 0-5 2-5 2zm1.76-4.24c0 0 .59 3.41 2.41 4.59 1 .68 2.3.34 2.98-.66s.34-2.3-.66-2.98C6.67 7.53 3.76 7.76 3.76 7.76zm3.52-3.52c0 0-.59 3.41 1.23 4.59 1 .68 2.3.34 2.98-.66s.34-2.3-.66-2.98C9.01 3.95 7.28 4.24 7.28 4.24z"/></svg>
+  </div>
+</div>
+
+<!-- ABOUT + ORDER OPTIONS -->
+<section id="o-nas">
+  <div class="deco-blob deco-blob-about-1"></div>
+  <div class="deco-blob deco-blob-about-2"></div>
+  <div class="section-inner">
+  <div class="about-text-col reveal" id="dostawa">
+    <div class="deli-label" style="margin-bottom:14px">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      Zamów
+    </div>
+    <h2 class="about-title" style="color:var(--dark);margin-bottom:28px">JAK CHCESZ<br>OTRZYMAĆ <span style="color:var(--red)">ZAMÓWIENIE?</span></h2>
+    <div class="deli-cards deli-cards-col">
+      <div class="deli-card" id="optDelivery" onclick="selectDelivery('delivery')">
+        <div class="deli-card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="deli-card-body">
+          <h3>Dostawa do domu</h3>
+          <p>Dostarczymy w 30–45 min. Gratis przy zamówieniu powyżej 80 zł.</p>
+        </div>
+        <div class="deli-tag">od 8 zł</div>
+      </div>
+      <div class="deli-card" id="optTakeaway" onclick="selectDelivery('takeaway')">
+        <div class="deli-card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+        </div>
+        <div class="deli-card-body">
+          <h3>Na wynos</h3>
+          <p>Gotowe w 15–20 min. Bez dodatkowych opłat.</p>
+        </div>
+        <div class="deli-tag">Gratis</div>
+      </div>
+      <div class="deli-card" id="optDineIn" onclick="selectDelivery('dinein')">
+        <div class="deli-card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11c0 5.5 4 9 9 9s9-3.5 9-9"/><path d="M3 11h18"/><path d="M9 4c0 0 .5 2-1 3M13 3c0 0 .5 2-1 3"/></svg>
+        </div>
+        <div class="deli-card-body">
+          <h3>Na miejscu</h3>
+          <p>Zjedz w restauracji. Stolik zarezerwujesz online.</p>
+        </div>
+        <div class="deli-tag">Rezerwacja</div>
+      </div>
+    </div>
+  </div>
+  <div class="about-visual reveal" style="transition-delay:.18s">
+    <div class="about-ring"></div>
+    <img class="about-img" src="https://images.unsplash.com/photo-1591814468924-caf88d1232e1?w=600&q=80" alt="Japońska kuchnia" onerror="this.style.background='#F0C4BA'">
+  </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-col">
+      <div class="foot-col-title">Kontakt</div>
+      <div class="foot-contact-grid">
+        <div class="ci ci-foot">
+          <div class="ci-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="ci-label">Adres</div><div class="ci-val">ul. Japońska 14, Warszawa</div></div>
+        </div>
+        <div class="ci ci-foot">
+          <div class="ci-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div><div class="ci-label">Godziny</div><div class="ci-val">Pon–Pt 11–22 · Sob–Nd 12–23</div></div>
+        </div>
+        <div class="ci ci-foot">
+          <div class="ci-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.05 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div><div class="ci-label">Telefon</div><div class="ci-val">+48 22 123 45 67</div></div>
+        </div>
+        <div class="ci ci-foot">
+          <div class="ci-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="ci-label">Email</div><div class="ci-val">rezerwacje@sakurahouse.pl</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="foot-col">
+      <div class="foot-logo">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--red)" style="opacity:.7;vertical-align:middle;margin-right:6px"><path d="M12 2C9 2 7 5 7 7c0 1 .4 2 1 2.7C5.2 10.5 4 12.6 4 15c0 4.4 3.6 8 8 8s8-3.6 8-8c0-2.4-1.2-4.5-3-5.8.6-.7 1-1.7 1-2.7 0-2-2-5-5-5zm0 2c1.7 0 3 2 3 3 0 .8-.4 1.5-1 2l-2 1.3-2-1.3c-.6-.5-1-1.2-1-2 0-1 1.3-3 3-3z"/></svg>
+        桜 Sakura House
+      </div>
+      <p class="foot-desc">Autentyczna japońska kuchnia w samym sercu Warszawy. Gotowane z miłością każdego dnia.</p>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">© 2025 Sakura House. Wszelkie prawa zastrzeżone.</div>
+  </div>
+</footer>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay"></div>
+
+<!-- RESERVATION MODAL -->
+<div class="res-modal" id="resModal">
+  <button class="res-modal-close" id="resClose">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <div class="res-modal-head">
+    <div class="sec-label" style="margin-bottom:6px">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Rezerwacje
+    </div>
+    <h3 class="res-modal-title">ZAREZERWUJ <span>STOLIK</span></h3>
+  </div>
+  <div class="c-form" style="box-shadow:none;border:none;padding:0;background:transparent;backdrop-filter:none">
+    <div class="c-form-row">
+      <div>
+        <label>Imię i Nazwisko</label>
+        <input type="text" placeholder="Jan Kowalski">
+      </div>
+      <div>
+        <label>Telefon</label>
+        <input type="tel" placeholder="+48 000 000 000">
+      </div>
+    </div>
+    <div class="c-form-row">
+      <div>
+        <label>Data rezerwacji</label>
+        <input type="date" id="resDate">
+      </div>
+      <div>
+        <label>Godzina</label>
+        <input type="time" value="19:00">
+      </div>
+    </div>
+    <div>
+      <label>Liczba gości</label>
+      <div class="guest-picker">
+        <button type="button" class="guest-btn" id="guestMinus2">−</button>
+        <span id="guestCount2">2</span>
+        <button type="button" class="guest-btn" id="guestPlus2">+</button>
+        <span class="guest-label">osoby</span>
+      </div>
+    </div>
+    <div>
+      <label>Specjalne życzenia</label>
+      <textarea placeholder="Urodziny, alergie, preferencje dotyczące stolika..." style="height:70px"></textarea>
+    </div>
+    <button class="btn-red" type="button" id="resSubmitBtn" style="justify-content:center">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      ZAREZERWUJ STOLIK
+    </button>
+    <div id="resFullMsg" style="display:none;margin-top:16px;padding:16px;background:var(--pink-light);border:1.5px solid var(--red);text-align:center;">
+      <div style="font-family:'Dela Gothic One',sans-serif;font-size:13px;color:var(--red);margin-bottom:6px;">BRAK WOLNYCH MIEJSC ONLINE</div>
+      <div style="font-size:13px;color:var(--dark);line-height:1.7;">Wszystkie rezerwacje online są zajęte.<br>Skontaktuj się z nami bezpośrednio:</div>
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:4px;align-items:center;">
+        <a href="tel:+48221234567" style="font-size:13px;font-weight:700;color:var(--red);text-decoration:none;">📞 +48 22 123 45 67</a>
+        <a href="mailto:rezerwacje@sakurahouse.pl" style="font-size:13px;font-weight:700;color:var(--red);text-decoration:none;">✉ rezerwacje@sakurahouse.pl</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <button class="modal-close-btn" id="modalClose">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <div class="modal-layout">
+    <div class="modal-left">
+      <div class="modal-img-frame">
+        <img id="mImg" class="modal-food-img" src="" alt="">
+      </div>
+      <div class="nutrition-row" id="mNutrition"></div>
+    </div>
+    <div class="modal-right">
+      <h2 class="modal-name" id="mName"></h2>
+      <div class="modal-hr"><div class="modal-hr-dot"></div></div>
+      <p class="modal-desc" id="mDesc"></p>
+      <p class="modal-weight" id="mWeight"></p>
+      <div class="modal-cta-row">
+        <button class="btn-red" id="mAddBtn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          DODAJ DO KOSZYKA
+        </button>
+        <div class="modal-price" id="mPrice"></div>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="dodatki">Dodatki</button>
+        <button class="tab-btn" data-tab="napoje">Napoje</button>
+        <button class="tab-btn" data-tab="mochi">Mochi</button>
+      </div>
+      <div class="tab-panel active" id="tab-dodatki">
+        <div class="addon-grid" id="gridDodatki"></div>
+      </div>
+      <div class="tab-panel" id="tab-napoje">
+        <div class="addon-grid" id="gridNapoje"></div>
+      </div>
+      <div class="tab-panel" id="tab-mochi">
+        <div class="addon-grid" id="gridMochi"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CART SIDEBAR -->
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-head">
+    <div class="cart-head-title">Twój Koszyk <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+    <button class="cart-close-btn" id="cartClose">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty-state"><span>🍜</span><p>Koszyk jest pusty</p></div>
+  </div>
+  <div class="cart-foot" id="cartFoot" style="display:none">
+    <div class="cart-sum">
+      <div class="cart-row"><span>Produkty</span><span id="sumProducts">0 zł</span></div>
+      <div class="cart-row"><span>Dostawa</span><span id="sumDelivery">8 zł</span></div>
+      <div class="cart-row total"><span>Razem</span><span id="sumTotal">0 zł</span></div>
+    </div>
+    <button class="btn-red" style="width:100%;justify-content:center" onclick="placeOrder()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      ZAMÓW TERAZ
+    </button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-dot"></div>
+  <span id="toastMsg">Dodano do koszyka!</span>
+</div>
+
+<!-- FLOATING CART BUTTON -->
+<button class="fab-cart" id="cartToggle" aria-label="Koszyk">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+  <span class="cart-badge" id="cartBadge">0</span>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
