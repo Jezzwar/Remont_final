@@ -1,0 +1,110 @@
+{
+  "nav": {
+    "services": "Usługi",
+    "portfolio": "Realizacje",
+    "about": "O nas",
+    "reviews": "Opinie",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "call": "Zadzwoń"
+  },
+  "hero": {
+    "badge": "Profesjonalne remonty wnętrz",
+    "title": "Remont pod klucz bez stresu",
+    "subtitle": "Remonty mieszkań i domów | Warszawa",
+    "description": "Bierzemy na siebie cały proces remontu: organizację, wykonawców i materiały. Ty zyskujesz piękne wnętrze bez chaosu i bez stresu.",
+    "cta_call": "Zadzwoń: +48 XXX XXX XXX",
+    "cta_message": "Wyślij wiadomość"
+  },
+  "stats": {
+    "experience": "lat doświadczenia",
+    "projects": "zrealizowanych projektów",
+    "satisfaction": "zadowolonych klientów",
+    "area": "Warszawa i okolice"
+  },
+  "services": {
+    "title": "Nasze Usługi",
+    "walls": { "name": "Ściany", "desc": "Malowanie, gładzie, ściany działowe" },
+    "floors": { "name": "Podłogi", "desc": "Panele, deski, płytki, listwy" },
+    "ceilings": { "name": "Sufity", "desc": "Sufity podwieszane, zabudowy, oświetlenie" },
+    "finishing": { "name": "Wykończenia", "desc": "Listwy, drzwi, detale wykończeniowe" },
+    "bathrooms": { "name": "Łazienki", "desc": "Kompleksowe remonty łazienek" },
+    "kitchens": { "name": "Kuchnie", "desc": "Zabudowy i aranżacje kuchenne" },
+    "installations": { "name": "Instalacje", "desc": "Elektryka, hydraulika, wentylacja" },
+    "turnkey": { "name": "Remont pod klucz", "desc": "Kompleksowa realizacja od A do Z" }
+  },
+  "portfolio": {
+    "title": "Realizacje",
+    "see_more": "Zobacz więcej realizacji"
+  },
+  "before_after": {
+    "title": "Przed / Po",
+    "before": "PRZED",
+    "after": "PO",
+    "see_more": "Zobacz więcej metamorfoz"
+  },
+  "process": {
+    "title": "Jak pracujemy",
+    "step1": { "title": "Konsultacja", "desc": "Poznajemy Twoje potrzeby i omawiamy wizję projektu." },
+    "step2": { "title": "Wycena", "desc": "Przedstawiamy przejrzystą wycenę bez ukrytych kosztów." },
+    "step3": { "title": "Realizacja", "desc": "Realizujemy prace zgodnie z ustalonym harmonogramem." },
+    "step4": { "title": "Odbiór", "desc": "Dokładnie odbieramy prace i przekazujemy gotowe wnętrze." }
+  },
+  "testimonials": {
+    "title": "Opinie klientów",
+    "see_more": "Zobacz więcej opinii"
+  },
+  "faq": {
+    "title": "FAQ – Najczęściej zadawane pytania",
+    "q1": "Ile trwa remont mieszkania?",
+    "a1": "Czas zależy od zakresu prac. Standardowy remont 50m² trwa 4–6 tygodni.",
+    "q2": "Czy pomogliście w doborze materiałów?",
+    "a2": "Tak, oferujemy doradztwo w wyborze materiałów wykończeniowych.",
+    "q3": "Czy wykonujecie projekty wnętrz?",
+    "a3": "Współpracujemy z projektantami wnętrz i możemy zorganizować projekt.",
+    "q4": "Jak wygląda płatność?",
+    "a4": "Płatność etapami zgodnie z harmonogramem prac.",
+    "q5": "Czy oferujecie gwarancję na prace?",
+    "a5": "Tak, udzielamy 12 miesięcy gwarancji na wszystkie wykonane prace."
+  },
+  "contact": {
+    "title": "Gotowy na zmianę?",
+    "subtitle": "Zadzwoń i umów bezpłatną konsultację.",
+    "cta": "Zadzwoń: +48 XXX XXX XXX",
+    "form_name": "Imię i nazwisko",
+    "form_phone": "Telefon",
+    "form_email": "Email (opcjonalnie)",
+    "form_message": "Wiadomość (opcjonalnie)",
+    "form_submit": "Wyślij zapytanie",
+    "form_success": "Dziękujemy! Odezwiemy się wkrótce.",
+    "form_error": "Coś poszło nie tak. Spróbuj ponownie."
+  },
+  "footer": {
+    "tagline": "Remonty mieszkań i domów pod klucz. Profesjonalnie, terminowo i bez stresu.",
+    "nav_title": "Nawigacja",
+    "contact_title": "Kontakt",
+    "area_title": "Obszar działania",
+    "area_text": "Warszawa i okolice: Mokotów, Wilanów, Ursynów, Wola, Bemowo i inne dzielnice.",
+    "rights": "Wszelkie prawa zastrzeżone.",
+    "privacy": "Polityka prywatności",
+    "terms": "Regulamin",
+    "cookies": "Cookies"
+  },
+  "admin": {
+    "photos_title": "Zarządzanie zdjęciami",
+    "leads_title": "Zapytania",
+    "replace": "Zamień zdjęcie",
+    "upload_success": "Zdjęcie zaktualizowane",
+    "upload_error": "Błąd przesyłania",
+    "export_csv": "Eksportuj CSV",
+    "logout": "Wyloguj",
+    "name": "Imię",
+    "phone": "Telefon",
+    "email": "Email",
+    "date": "Data",
+    "message": "Wiadomość",
+    "category_hero": "Hero",
+    "category_portfolio": "Portfolio",
+    "category_before_after": "Przed / Po"
+  }
+}

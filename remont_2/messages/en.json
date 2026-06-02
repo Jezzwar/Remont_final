@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "reviews": "Reviews",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "call": "Call us"
+  },
+  "hero": {
+    "badge": "Professional interior renovations",
+    "title": "Turnkey renovation without stress",
+    "subtitle": "Apartment & house renovations | Warsaw",
+    "description": "We take care of the entire renovation process: coordination, contractors and materials. You get a beautiful interior without chaos or stress.",
+    "cta_call": "Call: +48 XXX XXX XXX",
+    "cta_message": "Send a message"
+  },
+  "stats": {
+    "experience": "years of experience",
+    "projects": "completed projects",
+    "satisfaction": "satisfied clients",
+    "area": "Warsaw & area"
+  },
+  "services": {
+    "title": "Our Services",
+    "walls": { "name": "Walls", "desc": "Painting, plastering, partition walls" },
+    "floors": { "name": "Floors", "desc": "Panels, boards, tiles, skirting" },
+    "ceilings": { "name": "Ceilings", "desc": "Suspended ceilings, built-ins, lighting" },
+    "finishing": { "name": "Finishing", "desc": "Trims, doors, finishing details" },
+    "bathrooms": { "name": "Bathrooms", "desc": "Full bathroom renovations" },
+    "kitchens": { "name": "Kitchens", "desc": "Kitchen built-ins and arrangements" },
+    "installations": { "name": "Installations", "desc": "Electrical, plumbing, ventilation" },
+    "turnkey": { "name": "Turnkey renovation", "desc": "Full project management A to Z" }
+  },
+  "portfolio": { "title": "Portfolio", "see_more": "See more projects" },
+  "before_after": { "title": "Before / After", "before": "BEFORE", "after": "AFTER", "see_more": "See more transformations" },
+  "process": {
+    "title": "How we work",
+    "step1": { "title": "Consultation", "desc": "We learn your needs and discuss the project vision." },
+    "step2": { "title": "Quote", "desc": "We provide a transparent quote with no hidden costs." },
+    "step3": { "title": "Execution", "desc": "We carry out work according to the agreed schedule." },
+    "step4": { "title": "Handover", "desc": "We carefully inspect and hand over the finished interior." }
+  },
+  "testimonials": { "title": "Client reviews", "see_more": "See more reviews" },
+  "faq": {
+    "title": "FAQ – Frequently asked questions",
+    "q1": "How long does an apartment renovation take?",
+    "a1": "It depends on the scope. A standard 50m² renovation takes 4–6 weeks.",
+    "q2": "Do you help with material selection?",
+    "a2": "Yes, we offer advice on finishing materials.",
+    "q3": "Do you handle interior design?",
+    "a3": "We work with interior designers and can arrange a project.",
+    "q4": "How does payment work?",
+    "a4": "Payment in stages according to the work schedule.",
+    "q5": "Do you offer a warranty?",
+    "a5": "Yes, we provide a 12-month warranty on all completed work."
+  },
+  "contact": {
+    "title": "Ready for a change?",
+    "subtitle": "Call and schedule a free consultation.",
+    "cta": "Call: +48 XXX XXX XXX",
+    "form_name": "Full name",
+    "form_phone": "Phone",
+    "form_email": "Email (optional)",
+    "form_message": "Message (optional)",
+    "form_submit": "Send inquiry",
+    "form_success": "Thank you! We'll be in touch soon.",
+    "form_error": "Something went wrong. Please try again."
+  },
+  "footer": {
+    "tagline": "Turnkey apartment and house renovations. Professional, on time, stress-free.",
+    "nav_title": "Navigation",
+    "contact_title": "Contact",
+    "area_title": "Service area",
+    "area_text": "Warsaw and surrounding areas: Mokotów, Wilanów, Ursynów, Wola, Bemowo and more.",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy policy",
+    "terms": "Terms",
+    "cookies": "Cookies"
+  },
+  "admin": {
+    "photos_title": "Photo management",
+    "leads_title": "Inquiries",
+    "replace": "Replace photo",
+    "upload_success": "Photo updated",
+    "upload_error": "Upload error",
+    "export_csv": "Export CSV",
+    "logout": "Log out",
+    "name": "Name",
+    "phone": "Phone",
+    "email": "Email",
+    "date": "Date",
+    "message": "Message",
+    "category_hero": "Hero",
+    "category_portfolio": "Portfolio",
+    "category_before_after": "Before / After"
+  }
+}
