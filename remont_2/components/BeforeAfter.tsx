@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 import { createSupabaseAdmin } from '@/lib/supabase-server'
@@ -23,8 +23,7 @@ async function getBeforeAfterImages() {
 }
 
 export default async function BeforeAfter() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const t = useTranslations('before_after')
+  const t = await getTranslations('before_after')
   const pairs = await getBeforeAfterImages()
 
   return (

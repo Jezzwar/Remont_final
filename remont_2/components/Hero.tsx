@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { Phone, Mail } from 'lucide-react'
 import Image from 'next/image'
 import { createSupabaseAdmin } from '@/lib/supabase-server'
@@ -18,10 +18,8 @@ async function getHeroImage() {
 }
 
 export default async function Hero() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const t = useTranslations('hero')
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const ts = useTranslations('stats')
+  const t = await getTranslations('hero')
+  const ts = await getTranslations('stats')
   const heroImage = await getHeroImage()
 
   return (

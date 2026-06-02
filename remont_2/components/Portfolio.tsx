@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 import { createSupabaseAdmin } from '@/lib/supabase-server'
 import { ArrowRight } from 'lucide-react'
@@ -18,8 +18,7 @@ async function getPortfolioImages() {
 }
 
 export default async function Portfolio() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const t = useTranslations('portfolio')
+  const t = await getTranslations('portfolio')
   const images = await getPortfolioImages()
 
   return (

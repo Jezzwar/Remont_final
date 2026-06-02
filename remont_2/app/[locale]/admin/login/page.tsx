@@ -22,6 +22,7 @@ export default function LoginPage() {
       setError('Nieprawidłowy email lub hasło.')
       setLoading(false)
     } else {
+      router.refresh()
       router.push(`/${locale}/admin/photos`)
     }
   }

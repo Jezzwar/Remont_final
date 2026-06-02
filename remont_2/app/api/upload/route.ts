@@ -1,11 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createSupabaseAdmin } from '@/lib/supabase-server'
+import { createSupabaseAdmin, createSupabaseServer } from '@/lib/supabase-server'
 
 export async function POST(req: NextRequest) {
   const formData = await req.formData()
   const file = formData.get('file') as File
   const imageId = formData.get('imageId') as string
   const storagePath = formData.get('storagePath') as string
+
+  // Verify session before allowing upload
+  const supabaseAuth = createSupabaseServer()
+  const { data: { session } } = await supabaseAuth.auth.getSession()
+  if (!session) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
 
   if (!file || !imageId || !storagePath) {
     return NextResponse.json({ error: 'Missing fields' }, { status: 400 })
