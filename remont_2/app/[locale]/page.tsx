@@ -2,25 +2,28 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import Services from '@/components/Services'
 import Portfolio from '@/components/Portfolio'
-import BeforeAfter from '@/components/BeforeAfter'
 import Process from '@/components/Process'
-import Testimonials from '@/components/Testimonials'
 import FAQ from '@/components/FAQ'
-import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
+
+const Divider = () => (
+  <div className="w-full h-px bg-white/[0.12]" />
+)
 
 export default function HomePage() {
   return (
     <>
       <Navbar />
       <Hero />
+      <Divider />
       <Services />
+      <Divider />
       <Portfolio />
-      <BeforeAfter />
+      <Divider />
       <Process />
-      <Testimonials />
+      <Divider />
       <FAQ />
-      <ContactForm />
+
       <Footer />
     </>
   )

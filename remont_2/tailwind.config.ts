@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        graphite: '#1F1F1F',
+        graphite: '#0D0D0D',
         beige: '#D8C3A5',
         'beige-light': '#E8D9C0',
         'gray-light': '#F3F3F3',

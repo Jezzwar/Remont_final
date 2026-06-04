@@ -1,77 +1,121 @@
 'use client'
 import { useTranslations, useLocale } from 'next-intl'
 import { Phone } from 'lucide-react'
+import Image from 'next/image'
 import LanguageSwitcher from './LanguageSwitcher'
-import { useState } from 'react'
+import { SlideTabs } from './ui/slide-tabs'
+import { useState, useEffect } from 'react'
 
 export default function Navbar() {
   const t = useTranslations('nav')
   const locale = useLocale()
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [activeId, setActiveId] = useState('uslugi')
 
   const links = [
-    { href: '#uslugi', label: t('services') },
-    { href: '#realizacje', label: t('portfolio') },
-    { href: '#o-nas', label: t('about') },
-    { href: '#opinie', label: t('reviews') },
-    { href: '#faq', label: t('faq') },
-    { href: '#kontakt', label: t('contact') },
+    { id: 'uslugi',     label: t('services') },
+    { id: 'realizacje', label: t('portfolio') },
+    { id: 'o-nas',      label: t('about') },
+    { id: 'faq',        label: t('faq') },
+    { id: 'kontakt',    label: t('contact') },
   ]
 
+  // Track scroll position to highlight active section
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20)
+
+      const sectionIds = links.map((l) => l.id)
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sectionIds[i])
+        if (el && el.getBoundingClientRect().top <= 120) {
+          setActiveId(sectionIds[i])
+          return
+        }
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  function scrollTo(id: string) {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    setActiveId(id)
+    setOpen(false)
+  }
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-graphite/95 backdrop-blur border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href={`/${locale}`} className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-beige rounded flex items-center justify-center text-graphite font-bold text-sm">R</div>
-          <div>
-            <div className="text-white font-heading font-bold text-sm leading-none">remont naprawa</div>
-            <div className="text-beige text-xs tracking-widest">WARSZAWA</div>
+    <nav className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-500 ${
+      scrolled
+        ? 'bg-graphite border-white/10'
+        : 'bg-transparent border-transparent'
+    }`}>
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 h-[90px] flex items-center justify-between gap-4">
+
+        {/* Logo */}
+        <a href={`/${locale}`} className="flex items-center group flex-shrink-0 -ml-[calc(13%-79px)]">
+          <div className="relative h-[90px] w-[22rem] flex-shrink-0">
+            <Image
+              src="/logo_new1.png"
+              alt="Remont Naprawa Warszawa"
+              fill
+              className="object-contain object-left transition-transform duration-300 group-hover:scale-105"
+            />
           </div>
         </a>
 
-        <div className="hidden lg:flex items-center gap-6">
-          {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm text-white/70 hover:text-white transition-colors">
-              {l.label}
-            </a>
-          ))}
+        {/* Desktop slide-tabs nav */}
+        <div className="hidden lg:flex flex-1 justify-center">
+          <SlideTabs
+            tabs={links}
+            activeId={activeId}
+            onSelect={scrollTo}
+          />
         </div>
 
-        <div className="flex items-center gap-4">
+        {/* Right */}
+        <div className="flex items-center gap-3 flex-shrink-0">
           <LanguageSwitcher />
           <a
             href="tel:+48000000000"
-            className="hidden sm:flex items-center gap-2 bg-beige text-graphite text-sm font-semibold px-4 py-2 rounded-full hover:bg-beige-light transition-colors"
+            className="btn-shimmer hidden sm:flex items-center gap-2 bg-beige text-graphite text-sm font-semibold px-4 py-2 rounded-full hover:bg-beige-light transition-colors duration-200"
           >
-            <Phone size={14} />
+            <Phone size={13} />
             {t('call')}
           </a>
           <button
-            className="lg:hidden text-white"
+            className="lg:hidden flex flex-col gap-1.5 p-1"
             onClick={() => setOpen(!open)}
             aria-label="Menu"
           >
-            <div className="space-y-1">
-              <span className="block w-5 h-0.5 bg-white" />
-              <span className="block w-5 h-0.5 bg-white" />
-              <span className="block w-5 h-0.5 bg-white" />
-            </div>
+            <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${open ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${open ? 'opacity-0' : ''}`} />
+            <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${open ? '-rotate-45 -translate-y-2' : ''}`} />
           </button>
         </div>
       </div>
 
-      {open && (
-        <div className="lg:hidden bg-graphite border-t border-white/10 px-6 py-4 flex flex-col gap-4">
+      {/* Mobile menu */}
+      <div className={`lg:hidden overflow-hidden transition-all duration-300 ${open ? 'max-h-96' : 'max-h-0'}`}>
+        <div className="bg-graphite border-t border-white/10 px-6 py-4 flex flex-col gap-3">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-white/80 hover:text-white" onClick={() => setOpen(false)}>
+            <button
+              key={l.id}
+              onClick={() => scrollTo(l.id)}
+              className={`text-left py-1 transition-colors text-sm ${
+                activeId === l.id ? 'text-beige font-semibold' : 'text-white/70 hover:text-white'
+              }`}
+            >
               {l.label}
-            </a>
+            </button>
           ))}
-          <a href="tel:+48000000000" className="flex items-center gap-2 text-beige font-semibold">
+          <a href="tel:+48000000000" className="flex items-center gap-2 text-beige font-semibold mt-2 pt-3 border-t border-white/10">
             <Phone size={14} /> +48 XXX XXX XXX
           </a>
         </div>
-      )}
+      </div>
     </nav>
   )
 }

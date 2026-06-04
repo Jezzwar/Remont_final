@@ -1,11 +1,9 @@
 import createMiddleware from 'next-intl/middleware'
 import { NextRequest, NextResponse } from 'next/server'
 import { createServerClient } from '@supabase/ssr'
+import { routing } from './i18n/routing'
 
-const intlMiddleware = createMiddleware({
-  locales: ['pl', 'en', 'ru'],
-  defaultLocale: 'pl',
-})
+const intlMiddleware = createMiddleware(routing)
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
