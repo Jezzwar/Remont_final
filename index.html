@@ -1,466 +1,386 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YoAsia — Fresh Asian Cuisine</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakura House — Japońska Kuchnia</title>
+
+  <!-- 2 fonts only: Dela Gothic One (display) · DM Sans (UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400;1,9..40,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- RESERVATION MODAL -->
-  <div class="modal-overlay" id="reserveModal" onclick="closeModal(event)">
-    <div class="modal-box">
-      <button class="modal-close" onclick="closeModalBtn()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-      <div class="modal-icon">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E8B84B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      </div>
-      <h3>No Available Reservations</h3>
-      <p>Sorry, there are no available reservations for the selected period. Please contact us by phone to find a convenient time.</p>
-      <a href="tel:+12345678901" class="modal-phone">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.91-1.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        +1 (234) 567-8901
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#">
+    <span class="nav-logo-jp">桜</span>Sakura House
+  </a>
+  <div class="nav-pill">
+    <a href="#menu">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      Menu
+    </a>
+    <a href="#dostawa">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      Dostawa
+    </a>
+    <a href="#" onclick="openReservation();return false;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Rezerwacje
+    </a>
+  </div>
+  <div class="nav-actions">
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#menu" onclick="closeMobileMenu()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Menu</a>
+  <a href="#dostawa" onclick="closeMobileMenu()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Dostawa</a>
+  <a href="#" onclick="closeMobileMenu();openReservation();return false;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Rezerwacje</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-blob hero-blob-3"></div>
+  <div class="jp-kanji jp-k1">日</div>
+  <div class="jp-kanji jp-k2">本</div>
+  <div class="jp-kanji jp-k3">桜</div>
+
+  <div class="hero-content">
+    <div class="hero-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg> Otwarte dziś · 11:00 – 22:00</div>
+    <h1 class="hero-title">TWOJE<br><em>AZJATYCKIE</em><br>MARZENIE</h1>
+    <p class="hero-sub">Witamy w miejscu, gdzie każdy talerz staje się prawdziwym dziełem sztuki. Autentyczne smaki, świeże składniki, gotowane z miłością.</p>
+    <div class="hero-btns hero-btns-desktop">
+      <a href="#menu" class="btn-red">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        ZŁÓŻ ZAMÓWIENIE
       </a>
-      <button class="btn-primary full" onclick="closeModalBtn()">Close</button>
     </div>
   </div>
 
+  <div class="hero-btns hero-btns-mobile" style="display:none">
+    <a href="#menu" class="btn-red">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      ZŁÓŻ ZAMÓWIENIE
+    </a>
+  </div>
 
-  <!-- ============ NAV ============ -->
-  <nav class="navbar">
-    <div class="nav-logo">
-      <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-        <circle cx="15" cy="15" r="15" fill="#E8B84B"/>
-        <path d="M8 22C8 22 10 12 15 10C20 8 22 14 22 14" stroke="#0d0d0d" stroke-width="2" stroke-linecap="round"/>
-        <circle cx="15" cy="9" r="3" fill="#0d0d0d"/>
-        <path d="M10 18C12 16 18 16 20 18" stroke="#0d0d0d" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      <span class="logo-text">YO<strong>ASIA</strong></span>
+  <div class="hero-visual">
+    <div class="hero-ring hero-ring-1"></div>
+    <div class="hero-ring hero-ring-2"></div>
+    <img
+      class="hero-img"
+      src="img/hero1.PNG"
+      alt="Łosoś podnoszony pałeczkami"
+      onerror="this.src='';this.style.cssText='width:440px;height:440px;background:#F0C4BA;border-radius:50%;display:block'"
+    >
+    <div class="hero-float-chip chip-1">
+      <div class="chip-dot"></div>
+      <span>+200 zadowolonych klientów</span>
     </div>
-    <div class="address-wrap">
-      <svg class="address-pin" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      <input type="text" class="address-input" placeholder="Enter your delivery address" />
+    <div class="hero-float-chip chip-2">
+      <div class="chip-dot"></div>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <span>Dostawa 30–45 min</span>
     </div>
-    <ul class="nav-links">
-      <li><a href="#menu">Menu</a></li>
-      <li><a href="#reserve">Reservation</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-right">
-      <button class="nav-cart-btn" id="cartBtn" aria-label="Cart">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        <span class="cart-badge" id="cartBadge" style="display:none">0</span>
-      </button>
-      <a href="#reserve" class="btn-nav-reserve">Reservation</a>
-    </div>
-    <button class="burger" onclick="toggleMenu()" aria-label="Menu">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-  </nav>
+  </div>
+</section>
 
-  <div class="nav-spacer"></div>
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
 
-  <!-- ============ CAROUSEL ============ -->
-  <section class="carousel-section" id="home">
-    <div class="carousel">
-      <div class="carousel-track" id="carouselTrack">
-        <div class="carousel-slide">
-          <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1400&q=85" alt="Sushi" loading="eager" />
-          <div class="carousel-overlay">
-            <div class="carousel-caption">
-              <p class="section-tag">Chef's Special</p>
-              <h2>PREMIUM SUSHI<br>CRAFTED FRESH DAILY</h2>
-              <a href="#menu" class="btn-primary">Explore Menu <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></a>
-            </div>
-          </div>
+<!-- SAKURA DIVIDER -->
+<!-- MENU -->
+<section class="section-wrap" id="menu">
+  <div class="deco-blob deco-blob-menu-1"></div>
+  <div class="deco-blob deco-blob-menu-2"></div>
+  <div class="jp-kanji jp-menu-1">麺</div>
+  <div class="jp-kanji jp-menu-2">味</div>
+  <div class="sec-header reveal">
+    <div>
+      <div class="sec-label"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="14" rx="9" ry="5"/><path d="M3 14c0-2 4-5 9-5s9 3 9 5"/><path d="M8 9V7a4 4 0 018 0v2"/></svg> Nasze dania</div>
+      <h2 class="sec-title">POPULARNE<br>TERAZ</h2>
+    </div>
+    <div class="sec-kanji" aria-hidden="true">食</div>
+  </div>
+  <div class="dishes-grid" id="dishesGrid"></div>
+  <div style="text-align:center;margin-top:40px" class="reveal">
+    <a href="#menu" class="btn-red">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      POKAŻ MENU
+    </a>
+  </div>
+</section>
+
+<!-- SAKURA DIVIDER -->
+<div class="sakura-divider">
+  <div class="sakura-divider-inner">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c0 0-2 3-2 5 0 1.1.9 2 2 2s2-.9 2-2c0-2-2-5-2-5zm4.24 1.76c0 0-3.41.59-4.59 2.41-.68 1-.34 2.3.66 2.98s2.3.34 2.98-.66c1.18-1.82.95-4.73.95-4.73zm3.52 3.52c0 0-3.41-.59-4.59 1.23-.68 1-.34 2.3.66 2.98s2.3.34 2.98-.66c1.18-1.82.95-3.55.95-3.55zM22 12c0 0-3-2-5-2-1.1 0-2 .9-2 2s.9 2 2 2c2 0 5-2 5-2zm-1.76 4.24c0 0-.59-3.41-2.41-4.59-1-.68-2.3-.34-2.98.66s-.34 2.3.66 2.98c1.82 1.18 4.73.95 4.73.95zm-3.52 3.52c0 0 .59-3.41-1.23-4.59-1-.68-2.3-.34-2.98.66s-.34 2.3.66 2.98c1.82 1.18 3.55.95 3.55.95zM12 22c0 0 2-3 2-5 0-1.1-.9-2-2-2s-2 .9-2 2c0 2 2 5 2 5zm-4.24-1.76c0 0 3.41-.59 4.59-2.41.68-1 .34-2.3-.66-2.98s-2.3-.34-2.98.66c-1.18 1.82-.95 4.73-.95 4.73zm-3.52-3.52c0 0 3.41.59 4.59-1.23.68-1 .34-2.3-.66-2.98s-2.3-.34-2.98.66c-1.18 1.82-.95 3.55-.95 3.55zM2 12c0 0 3 2 5 2 1.1 0 2-.9 2-2s-.9-2-2-2c-2 0-5 2-5 2zm1.76-4.24c0 0 .59 3.41 2.41 4.59 1 .68 2.3.34 2.98-.66s.34-2.3-.66-2.98C6.67 7.53 3.76 7.76 3.76 7.76zm3.52-3.52c0 0-.59 3.41 1.23 4.59 1 .68 2.3.34 2.98-.66s.34-2.3-.66-2.98C9.01 3.95 7.28 4.24 7.28 4.24z"/></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c0 0-2 3-2 5 0 1.1.9 2 2 2s2-.9 2-2c0-2-2-5-2-5zm4.24 1.76c0 0-3.41.59-4.59 2.41-.68 1-.34 2.3.66 2.98s2.3.34 2.98-.66c1.18-1.82.95-4.73.95-4.73zm3.52 3.52c0 0-3.41-.59-4.59 1.23-.68 1-.34 2.3.66 2.98s2.3.34 2.98-.66c1.18-1.82.95-3.55.95-3.55zM22 12c0 0-3-2-5-2-1.1 0-2 .9-2 2s.9 2 2 2c2 0 5-2 5-2zm-1.76 4.24c0 0-.59-3.41-2.41-4.59-1-.68-2.3-.34-2.98.66s-.34 2.3.66 2.98c1.82 1.18 4.73.95 4.73.95zm-3.52 3.52c0 0 .59-3.41-1.23-4.59-1-.68-2.3-.34-2.98.66s-.34 2.3.66 2.98c1.82 1.18 3.55.95 3.55.95zM12 22c0 0 2-3 2-5 0-1.1-.9-2-2-2s-2 .9-2 2c0 2 2 5 2 5zm-4.24-1.76c0 0 3.41-.59 4.59-2.41.68-1 .34-2.3-.66-2.98s-2.3-.34-2.98.66c-1.18 1.82-.95 4.73-.95 4.73zm-3.52-3.52c0 0 3.41.59 4.59-1.23.68-1 .34-2.3-.66-2.98s-2.3-.34-2.98.66c-1.18 1.82-.95 3.55-.95 3.55zM2 12c0 0 3 2 5 2 1.1 0 2-.9 2-2s-.9-2-2-2c-2 0-5 2-5 2zm1.76-4.24c0 0 .59 3.41 2.41 4.59 1 .68 2.3.34 2.98-.66s.34-2.3-.66-2.98C6.67 7.53 3.76 7.76 3.76 7.76zm3.52-3.52c0 0-.59 3.41 1.23 4.59 1 .68 2.3.34 2.98-.66s.34-2.3-.66-2.98C9.01 3.95 7.28 4.24 7.28 4.24z"/></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c0 0-2 3-2 5 0 1.1.9 2 2 2s2-.9 2-2c0-2-2-5-2-5zm4.24 1.76c0 0-3.41.59-4.59 2.41-.68 1-.34 2.3.66 2.98s2.3.34 2.98-.66c1.18-1.82.95-4.73.95-4.73zm3.52 3.52c0 0-3.41-.59-4.59 1.23-.68 1-.34 2.3.66 2.98s2.3.34 2.98-.66c1.18-1.82.95-3.55.95-3.55zM22 12c0 0-3-2-5-2-1.1 0-2 .9-2 2s.9 2 2 2c2 0 5-2 5-2zm-1.76 4.24c0 0-.59-3.41-2.41-4.59-1-.68-2.3-.34-2.98.66s-.34 2.3.66 2.98c1.82 1.18 4.73.95 4.73.95zm-3.52 3.52c0 0 .59-3.41-1.23-4.59-1-.68-2.3-.34-2.98.66s-.34 2.3.66 2.98c1.82 1.18 3.55.95 3.55.95zM12 22c0 0 2-3 2-5 0-1.1-.9-2-2-2s-2 .9-2 2c0 2 2 5 2 5zm-4.24-1.76c0 0 3.41-.59 4.59-2.41.68-1 .34-2.3-.66-2.98s-2.3-.34-2.98.66c-1.18 1.82-.95 4.73-.95 4.73zm-3.52-3.52c0 0 3.41.59 4.59-1.23.68-1 .34-2.3-.66-2.98s-2.3-.34-2.98.66c-1.18 1.82-.95 3.55-.95 3.55zM2 12c0 0 3 2 5 2 1.1 0 2-.9 2-2s-.9-2-2-2c-2 0-5 2-5 2zm1.76-4.24c0 0 .59 3.41 2.41 4.59 1 .68 2.3.34 2.98-.66s.34-2.3-.66-2.98C6.67 7.53 3.76 7.76 3.76 7.76zm3.52-3.52c0 0-.59 3.41 1.23 4.59 1 .68 2.3.34 2.98-.66s.34-2.3-.66-2.98C9.01 3.95 7.28 4.24 7.28 4.24z"/></svg>
+  </div>
+</div>
+
+<!-- ABOUT + ORDER OPTIONS -->
+<section id="o-nas">
+  <div class="deco-blob deco-blob-about-1"></div>
+  <div class="deco-blob deco-blob-about-2"></div>
+  <div class="section-inner">
+  <div class="about-text-col reveal" id="dostawa">
+    <div class="deli-label" style="margin-bottom:14px">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      Zamów
+    </div>
+    <h2 class="about-title" style="color:var(--dark);margin-bottom:28px">JAK CHCESZ<br>OTRZYMAĆ <span style="color:var(--red)">ZAMÓWIENIE?</span></h2>
+    <div class="deli-cards deli-cards-col">
+      <div class="deli-card" id="optDelivery" onclick="selectDelivery('delivery')">
+        <div class="deli-card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
         </div>
-        <div class="carousel-slide">
-          <img src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=1400&q=85" alt="Ramen" loading="lazy" />
-          <div class="carousel-overlay">
-            <div class="carousel-caption">
-              <p class="section-tag">Most Popular</p>
-              <h2>RICH & AUTHENTIC<br>JAPANESE RAMEN</h2>
-              <a href="#menu" class="btn-primary">Order Now <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></a>
-            </div>
-          </div>
+        <div class="deli-card-body">
+          <h3>Dostawa do domu</h3>
+          <p>Dostarczymy w 30–45 min. Gratis przy zamówieniu powyżej 80 zł.</p>
         </div>
-        <div class="carousel-slide">
-          <img src="https://images.unsplash.com/photo-1618841557871-b4664fbf0cb3?w=1400&q=85" alt="Asian cuisine" loading="lazy" />
-          <div class="carousel-overlay">
-            <div class="carousel-caption">
-              <p class="section-tag">Fast Delivery</p>
-              <h2>ASIAN FLAVORS<br>AT YOUR DOOR</h2>
-              <a href="#reserve" class="btn-primary">Book a Table <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></a>
-            </div>
-          </div>
-        </div>
+        <div class="deli-tag">od 8 zł</div>
       </div>
-
-      <div class="carousel-dots" id="carouselDots">
-        <button class="cdot active" data-idx="0"></button>
-        <button class="cdot" data-idx="1"></button>
-        <button class="cdot" data-idx="2"></button>
+      <div class="deli-card" id="optTakeaway" onclick="selectDelivery('takeaway')">
+        <div class="deli-card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+        </div>
+        <div class="deli-card-body">
+          <h3>Na wynos</h3>
+          <p>Gotowe w 15–20 min. Bez dodatkowych opłat.</p>
+        </div>
+        <div class="deli-tag">Gratis</div>
       </div>
-    </div>
-  </section>
-
-  <!-- ============ MENU ============ -->
-  <section class="menu-section" id="menu">
-    <div class="menu-section-inner">
-      <div class="menu-section-header">
-        <div>
-          <p class="section-tag">Our Specialties</p>
-          <h2>Choose Our Menu</h2>
+      <div class="deli-card" id="optDineIn" onclick="selectDelivery('dinein')">
+        <div class="deli-card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11c0 5.5 4 9 9 9s9-3.5 9-9"/><path d="M3 11h18"/><path d="M9 4c0 0 .5 2-1 3M13 3c0 0 .5 2-1 3"/></svg>
         </div>
-        <div class="filter-tabs">
-          <button class="tab active" data-filter="all">All</button>
-          <button class="tab" data-filter="ramen">Ramen</button>
-          <button class="tab" data-filter="sushi">Sushi</button>
-          <button class="tab" data-filter="wok">Wok</button>
-          <button class="tab" data-filter="desserts">Desserts</button>
+        <div class="deli-card-body">
+          <h3>Na miejscu</h3>
+          <p>Zjedz w restauracji. Stolik zarezerwujesz online.</p>
         </div>
-      </div>
-
-      <div class="menu-grid" id="menuGrid">
-
-        <!-- ===== INITIAL 9 ITEMS ===== -->
-
-        <!-- Ramen: confirmed ramen bowl photo -->
-        <div class="menu-card" data-cat="ramen">
-          <div class="menu-card-img">
-            <img src="https://gastroplant.com/wp-content/uploads/2019/01/1811_Vegan-Tonkotsu-Ramen_004.jpg" alt="Tonkotsu Ramen" loading="lazy" />
-          </div>
-          <div class="menu-card-body">
-            <span class="menu-cat">Ramen</span>
-            <h3>Tonkotsu Ramen</h3>
-            <p>Rich pork bone broth, chashu pork, soft-boiled egg and nori.</p>
-            <div class="menu-card-footer"><span class="menu-price">¥2,700</span><button class="btn-add-cart" onclick="addToCart(this)" aria-label="Add to cart"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add</button></div>
-          </div>
-        </div>
-
-        <!-- Sushi: confirmed sushi rolls photo -->
-        <div class="menu-card" data-cat="sushi">
-          <div class="menu-card-img">
-            <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&q=80" alt="Salmon Dragon Roll" loading="lazy" />
-          </div>
-          <div class="menu-card-body">
-            <span class="menu-cat">Sushi</span>
-            <h3>Salmon Dragon Roll</h3>
-            <p>Fresh salmon, avocado, cucumber with spicy mayo drizzle.</p>
-            <div class="menu-card-footer"><span class="menu-price">¥3,800</span><button class="btn-add-cart" onclick="addToCart(this)" aria-label="Add to cart"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add</button></div>
-          </div>
-        </div>
-
-        <!-- Wok: confirmed stir-fry noodles photo -->
-        <div class="menu-card" data-cat="wok">
-          <div class="menu-card-img">
-            <img src="https://www.recipetineats.com/tachyon/2018/05/Chicken-Pad-Thai_9.jpg?resize=900%2C1260&zoom=0.72" alt="Pad Thai" loading="lazy" />
-          </div>
-          <div class="menu-card-body">
-            <span class="menu-cat">Wok</span>
-            <h3>Pad Thai Noodles</h3>
-            <p>Stir-fried rice noodles with shrimp, tofu, egg and peanuts.</p>
-            <div class="menu-card-footer"><span class="menu-price">¥3,300</span><button class="btn-add-cart" onclick="addToCart(this)" aria-label="Add to cart"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add</button></div>
-          </div>
-        </div>
-
-        <!-- Dim Sum: confirmed dumplings photo -->
-        <div class="menu-card" data-cat="other">
-          <div class="menu-card-img">
-            <img src="https://maisonmarmite.com/wp-content/uploads/2024/05/Dim-Sumaux-Shiitake-01.jpg" alt="Dim Sum" loading="lazy" />
-          </div>
-          <div class="menu-card-body">
-            <span class="menu-cat">Dim Sum</span>
-            <h3>Steamed Dim Sum Basket</h3>
-            <p>Assorted dumplings: har gow, siu mai, and crystal rolls.</p>
-            <div class="menu-card-footer"><span class="menu-price">¥2,900</span><button class="btn-add-cart" onclick="addToCart(this)" aria-label="Add to cart"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add</button></div>
-          </div>
-        </div>
-
-        <!-- Tom Yum: confirmed Asian soup photo -->
-        <div class="menu-card" data-cat="other">
-          <div class="menu-card-img">
-            <img src="https://warningsugarygoodness.com/wp-content/uploads/2024/06/tom-yum-goong-spicy-thai-soup.jpg" alt="Tom Yum" loading="lazy" />
-          </div>
-          <div class="menu-card-body">
-            <span class="menu-cat">Soup</span>
-            <h3>Spicy Tom Yum Soup</h3>
-            <p>Thai hot and sour broth with prawns, mushrooms and lemongrass.</p>
-            <div class="menu-card-footer"><span class="menu-price">¥2,400</span><button class="btn-add-cart" onclick="addToCart(this)" aria-label="Add to cart"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add</button></div>
-          </div>
-        </div>
-
-        <!-- Bibimbap: confirmed bibimbap photo -->
-        <div class="menu-card" data-cat="other">
-          <div class="menu-card-img">
-            <img src="https://images.unsplash.com/photo-1553163147-622ab57be1c7?w=400&q=80" alt="Bibimbap" loading="lazy" />
-          </div>
-          <div class="menu-card-body">
-            <span class="menu-cat">Korean</span>
-            <h3>Bibimbap Bowl</h3>
-            <p>Korean rice bowl with vegetables, beef, egg and gochujang sauce.</p>
-            <div class="menu-card-footer"><span class="menu-price">¥3,200</span><button class="btn-add-cart" onclick="addToCart(this)" aria-label="Add to cart"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add</button></div>
-          </div>
-        </div>
-
-        <!-- Gyoza: confirmed gyoza photo -->
-        <div class="menu-card" data-cat="other">
-          <div class="menu-card-img">
-            <img src="https://yutaka.london/_images/2020/3/600/132291784862529942-83.jpg" alt="Gyoza" loading="lazy" />
-          </div>
-          <div class="menu-card-body">
-            <span class="menu-cat">Japanese</span>
-            <h3>Pan-Fried Gyoza</h3>
-            <p>Crispy Japanese dumplings filled with pork and cabbage, ponzu dip.</p>
-            <div class="menu-card-footer"><span class="menu-price">¥2,100</span><button class="btn-add-cart" onclick="addToCart(this)" aria-label="Add to cart"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add</button></div>
-          </div>
-        </div>
-
-        <!-- Mango Sticky Rice: confirmed Thai dessert photo -->
-        <div class="menu-card" data-cat="desserts">
-          <div class="menu-card-img">
-            <img src="https://scientificallysweet.com/wp-content/uploads/2016/01/IMG_0083-mango-sticky-rice-720x1080.jpg" alt="Mango Sticky Rice" loading="lazy" />
-          </div>
-          <div class="menu-card-body">
-            <span class="menu-cat">Dessert</span>
-            <h3>Mango Sticky Rice</h3>
-            <p>Sweet glutinous rice with ripe mango slices and coconut cream.</p>
-            <div class="menu-card-footer"><span class="menu-price">¥1,800</span><button class="btn-add-cart" onclick="addToCart(this)" aria-label="Add to cart"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add</button></div>
-          </div>
-        </div>
-
-        <!-- Kung Pao: confirmed stir-fry photo -->
-        <div class="menu-card" data-cat="wok">
-          <div class="menu-card-img">
-            <img src="https://www.onceuponachef.com/images/2018/05/Kung-Pao-Chicken-16-760x938.jpg" alt="Kung Pao" loading="lazy" />
-          </div>
-          <div class="menu-card-body">
-            <span class="menu-cat">Wok</span>
-            <h3>Kung Pao Chicken</h3>
-            <p>Spicy stir-fried chicken with peanuts, chili peppers and Sichuan spice.</p>
-            <div class="menu-card-footer"><span class="menu-price">¥3,000</span><button class="btn-add-cart" onclick="addToCart(this)" aria-label="Add to cart"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add</button></div>
-          </div>
-        </div>
-
-        <!-- ===== EXTRA 9 ITEMS (hidden by default) ===== -->
-
-        <!-- Miso Ramen: different ramen photo -->
-        <div class="menu-card extra-item" data-cat="ramen">
-          <div class="menu-card-img">
-            <img src="https://i0.wp.com/thefoodieglobetrotter.com/wp-content/uploads/2020/05/Takeout-Kit-Japanese-Spicy-Miso-Ramen-Meal-Kit-1-scaled-e1724367984524.jpg?resize=1200%2C1200&ssl=1" alt="Miso Ramen" loading="lazy" />
-          </div>
-          <div class="menu-card-body">
-            <span class="menu-cat">Ramen</span>
-            <h3>Spicy Miso Ramen</h3>
-            <p>Fermented miso broth with corn, butter, bamboo shoots and soft egg.</p>
-            <div class="menu-card-footer"><span class="menu-price">¥2,600</span><button class="btn-add-cart" onclick="addToCart(this)" aria-label="Add to cart"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add</button></div>
-          </div>
-        </div>
-
-        <!-- Thai Green Curry: curry photo, unique from pad thai -->
-        <div class="menu-card extra-item" data-cat="wok">
-          <div class="menu-card-img">
-            <img src="https://www.kitchensanctuary.com/wp-content/uploads/2019/06/Thai-Green-Chicken-Curry-Tall-FS.jpg" alt="Thai Green Curry" loading="lazy" />
-          </div>
-          <div class="menu-card-body">
-            <span class="menu-cat">Wok</span>
-            <h3>Thai Green Curry</h3>
-            <p>Aromatic green curry with chicken, Thai basil, eggplant and coconut milk.</p>
-            <div class="menu-card-footer"><span class="menu-price">¥3,500</span><button class="btn-add-cart" onclick="addToCart(this)" aria-label="Add to cart"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add</button></div>
-          </div>
-        </div>
-
-        <!-- Udon: noodle soup photo, unique from ramen hero -->
-        <div class="menu-card extra-item" data-cat="ramen">
-          <div class="menu-card-img">
-            <img src="https://images.unsplash.com/photo-1618841557871-b4664fbf0cb3?w=400&q=80" alt="Udon" loading="lazy" />
-          </div>
-          <div class="menu-card-body">
-            <span class="menu-cat">Ramen</span>
-            <h3>Udon Noodle Soup</h3>
-            <p>Thick wheat noodles in savory dashi broth with tempura shrimp and scallion.</p>
-            <div class="menu-card-footer"><span class="menu-price">¥2,900</span><button class="btn-add-cart" onclick="addToCart(this)" aria-label="Add to cart"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add</button></div>
-          </div>
-        </div>
-
-        <!-- Rainbow Roll: sushi close-up photo -->
-        <div class="menu-card extra-item" data-cat="sushi">
-          <div class="menu-card-img">
-            <img src="https://images.unsplash.com/photo-1559410545-0bdcd187e0a6?w=400&q=80" alt="Rainbow Roll" loading="lazy" />
-          </div>
-          <div class="menu-card-body">
-            <span class="menu-cat">Sushi</span>
-            <h3>Rainbow Roll (8 pcs)</h3>
-            <p>California roll topped with alternating slices of tuna, salmon and avocado.</p>
-            <div class="menu-card-footer"><span class="menu-price">¥4,200</span><button class="btn-add-cart" onclick="addToCart(this)" aria-label="Add to cart"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add</button></div>
-          </div>
-        </div>
-
-        <!-- Korean BBQ: grilled meat photo -->
-        <!-- Matcha Ice Cream: matcha dessert photo -->
-        <div class="menu-card extra-item" data-cat="desserts">
-          <div class="menu-card-img">
-            <img src="https://www.samanthaseeley.com/wp-content/uploads/2012/02/green-tea-ice-cream-3-700x1050.jpg" alt="Matcha Ice Cream" loading="lazy" />
-          </div>
-          <div class="menu-card-body">
-            <span class="menu-cat">Dessert</span>
-            <h3>Matcha Ice Cream</h3>
-            <p>Premium ceremonial grade matcha ice cream served with mochi and red bean.</p>
-            <div class="menu-card-footer"><span class="menu-price">¥1,500</span><button class="btn-add-cart" onclick="addToCart(this)" aria-label="Add to cart"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add</button></div>
-          </div>
-        </div>
-
-        <!-- Spring Rolls: unique fried rolls photo -->
-        <div class="menu-card extra-item" data-cat="other">
-          <div class="menu-card-img">
-            <img src="https://pearlseafoods.au/cdn/shop/articles/prawn-vietnamese-fried-spring-rolls_565f2ac1-3c26-46d7-a285-28de36b852d9.jpg?crop=center&height=900&v=1768776223&width=1600" alt="Spring Rolls" loading="lazy" />
-          </div>
-          <div class="menu-card-body">
-            <span class="menu-cat">Chinese</span>
-            <h3>Crispy Spring Rolls</h3>
-            <p>Golden fried spring rolls filled with vegetables and glass noodles, sweet chili dip.</p>
-            <div class="menu-card-footer"><span class="menu-price">¥1,900</span><button class="btn-add-cart" onclick="addToCart(this)" aria-label="Add to cart"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add</button></div>
-          </div>
-        </div>
-
-        <!-- Vietnamese Pho: unique pho photo -->
-        <div class="menu-card extra-item" data-cat="other">
-          <div class="menu-card-img">
-            <img src="https://www.recipetineats.com/tachyon/2019/04/Beef-Pho_6.jpg?resize=900%2C1260&zoom=0.72" alt="Vietnamese Pho" loading="lazy" />
-          </div>
-          <div class="menu-card-body">
-            <span class="menu-cat">Vietnamese</span>
-            <h3>Vietnamese Beef Pho</h3>
-            <p>Clear star anise beef broth with rice noodles, rare beef, basil and bean sprouts.</p>
-            <div class="menu-card-footer"><span class="menu-price">¥2,700</span><button class="btn-add-cart" onclick="addToCart(this)" aria-label="Add to cart"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add</button></div>
-          </div>
-        </div>
-
-      </div><!-- /menu-grid -->
-
-      <div class="menu-see-all">
-        <button class="btn-see-all" id="seeAllBtn" onclick="toggleSeeAll()">
-          See All Menu
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-        </button>
+        <div class="deli-tag">Rezerwacja</div>
       </div>
     </div>
-  </section>
+  </div>
+  <div class="about-visual reveal" style="transition-delay:.18s">
+    <div class="about-ring"></div>
+    <img class="about-img" src="https://images.unsplash.com/photo-1591814468924-caf88d1232e1?w=600&q=80" alt="Japońska kuchnia" onerror="this.style.background='#F0C4BA'">
+  </div>
+  </div>
+</section>
 
-  <!-- ============ SERVICES ============ -->
-
-  <!-- ============ RESERVATION ============ -->
-  <section class="reservation" id="reserve">
-    <div class="reservation-inner">
-      <div class="reservation-left">
-        <p class="section-tag">Book Now</p>
-        <h2>Reserve Your<br>Table Tonight</h2>
-        <p>Experience the best of Asian cuisine in an elegant atmosphere. Reserve your table now for a memorable dining experience.</p>
-        <div class="reserve-info">
-          <div class="ri">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8B84B" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Mon–Sun: 11:00 – 23:00</span>
-          </div>
-          <div class="ri">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8B84B" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>123 Dragon Street, Tokyo District</span>
-          </div>
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-col">
+      <div class="foot-col-title">Kontakt</div>
+      <div class="foot-contact-grid">
+        <div class="ci ci-foot">
+          <div class="ci-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="ci-label">Adres</div><div class="ci-val">ul. Japońska 14, Warszawa</div></div>
         </div>
-      </div>
-      <form class="reservation-form" id="reserveForm" onsubmit="handleReservation(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Full Name</label>
-            <input type="text" placeholder="Your name" required />
-          </div>
-          <div class="form-group">
-            <label>Phone</label>
-            <input type="tel" placeholder="+1 234 567 890" required />
-          </div>
+        <div class="ci ci-foot">
+          <div class="ci-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div><div class="ci-label">Godziny</div><div class="ci-val">Pon–Pt 11–22 · Sob–Nd 12–23</div></div>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Date</label>
-            <input type="date" lang="en-US" required />
-          </div>
-          <div class="form-group">
-            <label>Time</label>
-            <input type="time" lang="en-US" required />
-          </div>
+        <div class="ci ci-foot">
+          <div class="ci-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.05 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div><div class="ci-label">Telefon</div><div class="ci-val">+48 22 123 45 67</div></div>
         </div>
-        <div class="form-group">
-          <label>Number of Guests</label>
-          <select>
-            <option>1 person</option>
-            <option>2 persons</option>
-            <option>3–4 persons</option>
-            <option>5+ persons</option>
-          </select>
+        <div class="ci ci-foot">
+          <div class="ci-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="ci-label">Email</div><div class="ci-val">rezerwacje@sakurahouse.pl</div></div>
         </div>
-        <button type="submit" class="btn-primary full">Book Table</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer" id="contact">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="nav-logo" style="margin-bottom:18px">
-          <svg width="32" height="32" viewBox="0 0 30 30" fill="none"><circle cx="15" cy="15" r="15" fill="#E8B84B"/><path d="M8 22C8 22 10 12 15 10C20 8 22 14 22 14" stroke="#0d0d0d" stroke-width="2" stroke-linecap="round"/><circle cx="15" cy="9" r="3" fill="#0d0d0d"/><path d="M10 18C12 16 18 16 20 18" stroke="#0d0d0d" stroke-width="1.5" stroke-linecap="round"/></svg>
-          <span class="logo-text" style="color:#fff">YO<strong style="color:#E8B84B">ASIA</strong></span>
-        </div>
-        <p>Fresh and authentic Asian cuisine crafted with love. Delivering happiness to your table, one bowl at a time.</p>
-        <div class="social-icons">
-          <a href="#"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="#"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-          <a href="#"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
-          <a href="https://www.ubereats.com" target="_blank" rel="noopener" title="Order on Uber Eats">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3a7 7 0 1 1 0 14A7 7 0 0 1 12 5zm0 2a5 5 0 1 0 0 10A5 5 0 0 0 12 7zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="footer-links">
-        <h5>Quick Links</h5>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Menu</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h5>Cuisines</h5>
-        <ul>
-          <li><a href="#">Japanese</a></li>
-          <li><a href="#">Korean</a></li>
-          <li><a href="#">Thai</a></li>
-          <li><a href="#">Chinese</a></li>
-          <li><a href="#">Vietnamese</a></li>
-        </ul>
-      </div>
-      <div class="footer-contact">
-        <h5>Contact Us</h5>
-        <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8B84B" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> 123 Dragon St, Tokyo District</p>
-        <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8B84B" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.91-1.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +1 (234) 567-8901</p>
-        <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8B84B" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> hello@yoasia.com</p>
-        <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8B84B" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Mon–Sun: 11:00–23:00</p>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 YoAsia Restaurant. All rights reserved.</p>
+    <div class="foot-col">
+      <div class="foot-logo">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--red)" style="opacity:.7;vertical-align:middle;margin-right:6px"><path d="M12 2C9 2 7 5 7 7c0 1 .4 2 1 2.7C5.2 10.5 4 12.6 4 15c0 4.4 3.6 8 8 8s8-3.6 8-8c0-2.4-1.2-4.5-3-5.8.6-.7 1-1.7 1-2.7 0-2-2-5-5-5zm0 2c1.7 0 3 2 3 3 0 .8-.4 1.5-1 2l-2 1.3-2-1.3c-.6-.5-1-1.2-1-2 0-1 1.3-3 3-3z"/></svg>
+        桜 Sakura House
+      </div>
+      <p class="foot-desc">Autentyczna japońska kuchnia w samym sercu Warszawy. Gotowane z miłością każdego dnia.</p>
     </div>
-  </footer>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">© 2025 Sakura House. Wszelkie prawa zastrzeżone.</div>
+  </div>
+</footer>
 
-  <!-- FLOATING CART (mobile) -->
-  <button class="floating-cart" id="floatingCart" aria-label="Cart">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-    <span class="floating-cart-badge" id="floatingBadge">0</span>
+<!-- OVERLAY -->
+<div class="overlay" id="overlay"></div>
+
+<!-- RESERVATION MODAL -->
+<div class="res-modal" id="resModal">
+  <button class="res-modal-close" id="resClose">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
+  <div class="res-modal-head">
+    <div class="sec-label" style="margin-bottom:6px">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Rezerwacje
+    </div>
+    <h3 class="res-modal-title">ZAREZERWUJ <span>STOLIK</span></h3>
+  </div>
+  <div class="c-form" style="box-shadow:none;border:none;padding:0;background:transparent;backdrop-filter:none">
+    <div class="c-form-row">
+      <div>
+        <label>Imię i Nazwisko</label>
+        <input type="text" placeholder="Jan Kowalski">
+      </div>
+      <div>
+        <label>Telefon</label>
+        <input type="tel" placeholder="+48 000 000 000">
+      </div>
+    </div>
+    <div class="c-form-row">
+      <div>
+        <label>Data rezerwacji</label>
+        <input type="date" id="resDate">
+      </div>
+      <div>
+        <label>Godzina</label>
+        <input type="time" value="19:00">
+      </div>
+    </div>
+    <div>
+      <label>Liczba gości</label>
+      <div class="guest-picker">
+        <button type="button" class="guest-btn" id="guestMinus2">−</button>
+        <span id="guestCount2">2</span>
+        <button type="button" class="guest-btn" id="guestPlus2">+</button>
+        <span class="guest-label">osoby</span>
+      </div>
+    </div>
+    <div>
+      <label>Specjalne życzenia</label>
+      <textarea placeholder="Urodziny, alergie, preferencje dotyczące stolika..." style="height:70px"></textarea>
+    </div>
+    <button class="btn-red" type="button" id="resSubmitBtn" style="justify-content:center">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      ZAREZERWUJ STOLIK
+    </button>
+    <div id="resFullMsg" style="display:none;margin-top:16px;padding:16px;background:var(--pink-light);border:1.5px solid var(--red);text-align:center;">
+      <div style="font-family:'Dela Gothic One',sans-serif;font-size:13px;color:var(--red);margin-bottom:6px;">BRAK WOLNYCH MIEJSC ONLINE</div>
+      <div style="font-size:13px;color:var(--dark);line-height:1.7;">Wszystkie rezerwacje online są zajęte.<br>Skontaktuj się z nami bezpośrednio:</div>
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:4px;align-items:center;">
+        <a href="tel:+48221234567" style="font-size:13px;font-weight:700;color:var(--red);text-decoration:none;">📞 +48 22 123 45 67</a>
+        <a href="mailto:rezerwacje@sakurahouse.pl" style="font-size:13px;font-weight:700;color:var(--red);text-decoration:none;">✉ rezerwacje@sakurahouse.pl</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <script src="app.js"></script>
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <button class="modal-close-btn" id="modalClose">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <div class="modal-layout">
+    <div class="modal-left">
+      <div class="modal-img-frame">
+        <img id="mImg" class="modal-food-img" src="" alt="">
+      </div>
+      <div class="nutrition-row" id="mNutrition"></div>
+    </div>
+    <div class="modal-right">
+      <h2 class="modal-name" id="mName"></h2>
+      <div class="modal-hr"><div class="modal-hr-dot"></div></div>
+      <p class="modal-desc" id="mDesc"></p>
+      <p class="modal-weight" id="mWeight"></p>
+      <div class="modal-cta-row">
+        <button class="btn-red" id="mAddBtn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          DODAJ DO KOSZYKA
+        </button>
+        <div class="modal-price" id="mPrice"></div>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="dodatki">Dodatki</button>
+        <button class="tab-btn" data-tab="napoje">Napoje</button>
+        <button class="tab-btn" data-tab="mochi">Mochi</button>
+      </div>
+      <div class="tab-panel active" id="tab-dodatki">
+        <div class="addon-grid" id="gridDodatki"></div>
+      </div>
+      <div class="tab-panel" id="tab-napoje">
+        <div class="addon-grid" id="gridNapoje"></div>
+      </div>
+      <div class="tab-panel" id="tab-mochi">
+        <div class="addon-grid" id="gridMochi"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CART SIDEBAR -->
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-head">
+    <div class="cart-head-title">Twój Koszyk <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+    <button class="cart-close-btn" id="cartClose">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty-state"><span>🍜</span><p>Koszyk jest pusty</p></div>
+  </div>
+  <div class="cart-foot" id="cartFoot" style="display:none">
+    <div class="cart-sum">
+      <div class="cart-row"><span>Produkty</span><span id="sumProducts">0 zł</span></div>
+      <div class="cart-row"><span>Dostawa</span><span id="sumDelivery">8 zł</span></div>
+      <div class="cart-row total"><span>Razem</span><span id="sumTotal">0 zł</span></div>
+    </div>
+    <button class="btn-red" style="width:100%;justify-content:center" onclick="placeOrder()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      ZAMÓW TERAZ
+    </button>
+  </div>
+</div>
+
+<!-- ADDON BOTTOM SHEET (mobile) -->
+<div class="addon-sheet" id="addonSheet">
+  <div class="addon-sheet-head">
+    <div class="addon-sheet-title" id="addonSheetTitle"></div>
+    <button class="addon-sheet-close" id="addonSheetClose">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="addon-grid" id="addonSheetGrid"></div>
+  <div class="addon-sheet-foot">
+    <button class="btn-red" id="addonSheetConfirm" style="width:100%;justify-content:center;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      DODAJ DO KOSZYKA
+    </button>
+  </div>
+</div>
+<div class="addon-sheet-overlay" id="addonSheetOverlay"></div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-dot"></div>
+  <span id="toastMsg">Dodano do koszyka!</span>
+</div>
+
+<!-- FLOATING CART BUTTON -->
+<button class="fab-cart" id="cartToggle" aria-label="Koszyk">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+  <span class="cart-badge" id="cartBadge">0</span>
+</button>
+
+<script src="script.js"></script>
 </body>
 </html>
