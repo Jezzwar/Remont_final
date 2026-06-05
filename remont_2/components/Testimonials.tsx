@@ -45,7 +45,7 @@ export default function Testimonials() {
   const resume = () => { if (trackRef.current) trackRef.current.style.animationPlayState = 'running' }
 
   return (
-    <section id="opinie" className="pt-6 pb-16 bg-graphite overflow-hidden px-6 sm:px-10 lg:px-16">
+    <section id="opinie" className="pt-4 pb-8 sm:pb-16 bg-graphite overflow-hidden px-6 sm:px-10 lg:px-16">
       <div className="max-w-7xl mx-auto mb-10">
         <p className="text-beige text-[10px] uppercase tracking-[0.25em] font-heading mb-3 flex items-center gap-2">
           <span>+</span> {t('title')}

@@ -18,7 +18,7 @@ export default function FAQ() {
   const [active, setActive] = useState(0)
 
   return (
-    <section id="faq" className="px-6 sm:px-10 lg:px-16 py-20 bg-surface">
+    <section id="faq" className="px-6 sm:px-10 lg:px-16 py-10 sm:py-20 bg-surface">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
 
         <div className="lg:w-64 flex-shrink-0">

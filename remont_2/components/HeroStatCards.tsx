@@ -46,13 +46,13 @@ export function HeroStatCards({
         </p>
         <div className="grid grid-cols-3 gap-5">
           {[
-            { Icon: BarChart2, value: '250+', label: projects, big: true },
-            { Icon: CalendarDays, value: '30 lat', label: experience, big: false },
-            { Icon: Star, value: '98%', label: satisfaction, big: true },
-          ].map(({ Icon, value, label, big }) => (
+            { Icon: BarChart2, value: '250+', label: projects },
+            { Icon: CalendarDays, value: '30 lat', label: experience },
+            { Icon: Star, value: '98%', label: satisfaction },
+          ].map(({ Icon, value, label }) => (
             <div key={value}>
               <div className="text-white/22 mb-2.5"><Icon size={14} /></div>
-              <div className={`font-body font-bold text-white leading-none ${big ? 'text-[1.9rem]' : 'text-[1.45rem]'}`}>
+              <div className="font-body font-bold text-white leading-none text-[1.75rem]">
                 {value}
               </div>
               <p className="text-white/30 text-[10px] leading-tight mt-2 whitespace-nowrap">{label}</p>

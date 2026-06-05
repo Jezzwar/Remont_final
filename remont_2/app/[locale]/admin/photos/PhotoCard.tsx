@@ -30,13 +30,21 @@ export default function PhotoCard({ image }: Props) {
 
   return (
     <div className="bg-white/5 rounded-xl overflow-hidden">
-      <div className="relative aspect-[4/3]">
-        <Image
-          src={preview ?? image.url}
-          alt={image.label}
-          fill
-          className="object-cover"
-        />
+      <div className="relative aspect-[4/3] bg-white/[0.04]">
+        {(preview || image.url) && (
+          <Image
+            src={preview ?? image.url}
+            alt={image.label}
+            fill
+            className="object-cover"
+            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
+          />
+        )}
+        {!preview && (
+          <div className="absolute inset-0 flex items-center justify-center text-white/20">
+            <Upload size={28} />
+          </div>
+        )}
         {status === 'loading' && (
           <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
             <div className="w-6 h-6 border-2 border-beige border-t-transparent rounded-full animate-spin" />

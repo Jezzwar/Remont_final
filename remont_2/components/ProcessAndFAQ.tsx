@@ -12,7 +12,7 @@ export default function ProcessAndFAQ() {
   const [active, setActive] = useState(0)
 
   return (
-    <section id="o-nas" className="px-6 sm:px-10 lg:px-16 py-16 bg-surface">
+    <section id="o-nas" className="px-6 sm:px-10 lg:px-16 py-8 sm:py-16 bg-surface">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
