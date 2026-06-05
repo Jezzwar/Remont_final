@@ -21,11 +21,9 @@ export default function Navbar() {
     { id: 'kontakt',    label: t('contact') },
   ]
 
-  // Track scroll position to highlight active section
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20)
-
       const sectionIds = links.map((l) => l.id)
       for (let i = sectionIds.length - 1; i >= 0; i--) {
         const el = document.getElementById(sectionIds[i])
@@ -51,13 +49,15 @@ export default function Navbar() {
     setOpen(false)
   }
 
+  const hasBg = scrolled || open
+
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${scrolled ? 'bg-graphite border-white/10' : 'bg-transparent border-transparent'}`}>
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 h-[90px] flex items-center justify-between relative">
+    <nav className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${hasBg ? 'bg-graphite border-white/10' : 'bg-transparent border-transparent'}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-10 lg:px-16 h-[70px] sm:h-[90px] flex items-center justify-between relative">
 
         {/* Logo */}
-        <a href={`/${locale}`} className="flex items-center group flex-shrink-0 -ml-[10%]">
-          <div className="relative h-[90px] w-[22rem] flex-shrink-0">
+        <a href={`/${locale}`} className="flex items-center group flex-shrink-0">
+          <div className="relative h-[56px] sm:h-[80px] w-[150px] sm:w-[280px]">
             <Image
               src="/final.png"
               alt="Remont Naprawa Warszawa"
@@ -67,7 +67,7 @@ export default function Navbar() {
           </div>
         </a>
 
-        {/* Desktop slide-tabs nav — absolutely centered */}
+        {/* Desktop nav — absolutely centered */}
         <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2">
           <SlideTabs
             tabs={links}
@@ -76,8 +76,8 @@ export default function Navbar() {
           />
         </div>
 
-        {/* Right */}
-        <div className="flex items-center gap-3 flex-shrink-0 -mr-[10%]">
+        {/* Right side */}
+        <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
           <LanguageSwitcher />
           <a
             href="tel:+48729460423"
@@ -86,34 +86,40 @@ export default function Navbar() {
             <Phone size={13} />
             {t('call')}
           </a>
+          {/* Hamburger */}
           <button
-            className="lg:hidden flex flex-col gap-1.5 p-1"
+            className="lg:hidden flex flex-col gap-[5px] p-2 -mr-1"
             onClick={() => setOpen(!open)}
             aria-label="Menu"
           >
-            <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${open ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${open ? 'rotate-45 translate-y-[7px]' : ''}`} />
             <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${open ? 'opacity-0' : ''}`} />
-            <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+            <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${open ? '-rotate-45 -translate-y-[7px]' : ''}`} />
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      <div className={`lg:hidden overflow-hidden transition-all duration-300 ${open ? 'max-h-96' : 'max-h-0'}`}>
-        <div className="bg-graphite border-t border-white/10 px-6 py-4 flex flex-col gap-3">
+      {/* Mobile dropdown menu */}
+      <div className={`lg:hidden overflow-hidden transition-all duration-300 ${open ? 'max-h-[400px]' : 'max-h-0'}`}>
+        <div className="bg-graphite border-t border-white/10 px-6 py-5 flex flex-col gap-1">
           {links.map((l) => (
             <button
               key={l.id}
               onClick={() => scrollTo(l.id)}
-              className={`text-left py-1 transition-colors text-sm ${
-                activeId === l.id ? 'text-beige font-semibold' : 'text-white/70 hover:text-white'
+              className={`text-left py-3 px-2 rounded-xl transition-colors text-[15px] font-heading ${
+                activeId === l.id
+                  ? 'text-beige font-semibold bg-white/[0.04]'
+                  : 'text-white/70 hover:text-white hover:bg-white/[0.03]'
               }`}
             >
               {l.label}
             </button>
           ))}
-          <a href="tel:+48729460423" className="flex items-center gap-2 text-beige font-semibold mt-2 pt-3 border-t border-white/10">
-            <Phone size={14} /> +48 729 460 423
+          <a
+            href="tel:+48729460423"
+            className="flex items-center gap-2.5 text-beige font-semibold mt-3 pt-4 border-t border-white/10 px-2 text-[15px]"
+          >
+            <Phone size={15} /> +48 729 460 423
           </a>
         </div>
       </div>

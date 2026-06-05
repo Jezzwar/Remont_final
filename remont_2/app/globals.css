@@ -7,6 +7,19 @@
   color: #0D0D0D;
 }
 
+/* Prevent iOS auto-zoom on input focus (requires font-size >= 16px) */
+@media (max-width: 768px) {
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}
+
+/* Legal pages: prevent heading overflow on mobile */
+h1, h2, h3, h4 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 @keyframes ticker {
   from { transform: translateX(0); }
   to   { transform: translateX(-25%); }
@@ -112,6 +125,15 @@
   }
   .card-glow:hover::before { opacity: 1; }
   .card-glow:hover { transform: translateY(-2px); }
+
+  /* Hide scrollbar for swipe carousels */
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
 
   /* noise grain overlay */
   .grain::after {

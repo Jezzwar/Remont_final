@@ -350,7 +350,7 @@ export default async function TermsPage({ params }: Props) {
 
           <div className="mb-12">
             <p className="text-beige text-[10px] uppercase tracking-[0.25em] font-heading mb-4">{c.label}</p>
-            <h1 className="font-heading font-black text-white uppercase text-[clamp(2rem,5vw,3rem)] leading-[0.9] tracking-tight mb-4">
+            <h1 className="font-heading font-black text-white uppercase text-[clamp(1.4rem,5vw,3rem)] leading-[0.9] tracking-tight mb-4">
               {c.title}
             </h1>
             <p className="text-white/30 text-sm">{c.updated}</p>
