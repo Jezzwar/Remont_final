@@ -19,7 +19,7 @@ export default async function Hero() {
   ]
 
   return (
-    <section className="relative w-full h-screen min-h-[600px] overflow-hidden bg-graphite">
+    <section className="relative w-full min-h-screen min-h-[600px] overflow-hidden bg-graphite">
       <Image src="/hero_high.png" alt="Hero" fill className="object-cover object-center" priority />
       <div className="absolute inset-0 bg-graphite/60" />
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-graphite to-transparent" />
@@ -32,22 +32,22 @@ export default async function Hero() {
       />
 
       {/* Main content */}
-      <div className="absolute inset-0 flex items-center px-8 sm:px-12 lg:px-16 xl:px-20">
+      <div className="absolute inset-0 flex items-center px-5 sm:px-12 lg:px-16 xl:px-20 pt-[70px] pb-[88px] sm:pb-0">
         <div className="w-full max-w-[1400px] mx-auto flex items-center gap-10 xl:gap-14">
 
           {/* ── Left column ── */}
           <div className="flex flex-col flex-1 min-w-0 gap-0">
 
-            {/* Heading — fills full column width */}
+            {/* Heading */}
             <HeroHeading text={t('title')} />
 
             {/* Subtitle */}
-            <p className="text-white/55 text-[15px] leading-relaxed mt-5 max-w-[520px]">
+            <p className="text-white/55 text-[13px] sm:text-[15px] leading-relaxed mt-4 sm:mt-5 max-w-[520px]">
               {t('description')}
             </p>
 
-            {/* Feature badges */}
-            <div className="flex flex-wrap gap-x-6 gap-y-3 mt-5">
+            {/* Feature badges — hidden on mobile */}
+            <div className="hidden sm:flex flex-wrap gap-x-6 gap-y-3 mt-5">
               {features.map(({ titleKey, descKey, Icon }) => (
                 <div key={titleKey} className="flex items-center gap-2.5">
                   <div className="w-8 h-8 rounded-lg bg-black/35 border border-white/[0.09] flex items-center justify-center text-beige/55 flex-shrink-0">
@@ -62,12 +62,12 @@ export default async function Hero() {
             </div>
 
             {/* Buttons */}
-            <div className="mt-7">
+            <div className="mt-5 sm:mt-7">
               <HeroButtons ctaCall={t('cta_call')} ctaMessage={t('cta_message')} />
             </div>
 
-            {/* Review badge */}
-            <div className="mt-4">
+            {/* Review badge — hidden on mobile */}
+            <div className="hidden sm:block mt-4">
               <HeroReviewBadge />
             </div>
           </div>

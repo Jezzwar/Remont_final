@@ -58,6 +58,8 @@ export function InteractiveProductCard({
       <img
         src={imageUrl}
         alt={title}
+        loading="lazy"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-cover"
         style={{ transform: 'translateZ(-20px) scale(1.12)' }}
       />

@@ -16,13 +16,26 @@ const FALLBACK: PortfolioImage[] = Array.from({ length: 27 }, (_, i) => ({
 }))
 
 const GAP = 12
-const VISIBLE = 4
-const SPEED = 0.25 // px per frame at 60fps
+const SPEED = 0.25
+
+function getVisible(width: number) {
+  if (width < 480) return 1.2
+  if (width < 768) return 2
+  if (width < 1024) return 3
+  return 4
+}
+
+function getCardHeight(width: number) {
+  if (width < 480) return 240
+  if (width < 768) return 300
+  return 420
+}
 
 export function PortfolioCarousel({ images }: { images: PortfolioImage[] }) {
   const slides = images.length > 0 ? images : FALLBACK
   const doubled = [...slides, ...slides]
   const [cardWidth, setCardWidth] = useState(280)
+  const [cardHeight, setCardHeight] = useState(420)
   const containerRef = useRef<HTMLDivElement>(null)
   const x = useMotionValue(0)
   const mode = useRef<'auto' | 'manual'>('auto')
@@ -33,7 +46,9 @@ export function PortfolioCarousel({ images }: { images: PortfolioImage[] }) {
     const update = () => {
       if (!containerRef.current) return
       const w = containerRef.current.offsetWidth
-      setCardWidth(Math.floor((w - GAP * (VISIBLE - 1)) / VISIBLE))
+      const visible = getVisible(w)
+      setCardWidth(Math.floor((w - GAP * (Math.ceil(visible) - 1)) / visible))
+      setCardHeight(getCardHeight(w))
     }
     update()
     window.addEventListener('resize', update)
@@ -81,8 +96,13 @@ export function PortfolioCarousel({ images }: { images: PortfolioImage[] }) {
     <div ref={containerRef} className="relative w-full overflow-hidden rounded-2xl bg-graphite">
       <motion.div className="flex" style={{ x, gap: GAP }}>
         {doubled.map((slide, i) => (
-          <div key={i} className="flex-shrink-0" style={{ width: cardWidth, height: 420 }}>
-            <img src={slide.src} alt={slide.alt} className="w-full h-full object-cover" />
+          <div key={i} className="flex-shrink-0" style={{ width: cardWidth, height: cardHeight }}>
+            <img
+              src={slide.src}
+              alt={slide.alt}
+              loading="lazy"
+              className="w-full h-full object-cover rounded-xl"
+            />
           </div>
         ))}
       </motion.div>

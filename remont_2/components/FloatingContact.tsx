@@ -100,7 +100,7 @@ export default function FloatingContact() {
         whileTap={{ scale: 0.95 }}
         animate={{ y: [0, -8, 0] }}
         transition={{ y: { duration: 2.4, repeat: Infinity, ease: 'easeInOut' }, scale: { duration: 0.15 } }}
-        className="fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-[#2a2218] shadow-[0_8px_32px_rgba(0,0,0,0.7)] overflow-hidden border border-beige/20"
+        className="fixed bottom-6 right-4 sm:right-6 z-50 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-[#2a2218] shadow-[0_8px_32px_rgba(0,0,0,0.7)] overflow-hidden border border-beige/20"
         aria-label="Rozpocznij projekt"
       >
         <motion.div animate={spinControls}>
@@ -120,9 +120,9 @@ export default function FloatingContact() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 24, scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 28 }}
-                className="w-[min(540px,92vw)] rounded-2xl bg-graphite border border-white/10 shadow-[0_32px_80px_rgba(0,0,0,0.7)] pointer-events-auto"
+                className="w-[min(540px,96vw)] rounded-2xl bg-graphite border border-white/10 shadow-[0_32px_80px_rgba(0,0,0,0.7)] pointer-events-auto max-h-[90vh] overflow-y-auto"
               >
-                <div className="flex items-start justify-between p-8 pb-5">
+                <div className="flex items-start justify-between p-5 sm:p-8 pb-4 sm:pb-5">
                   <div>
                     <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] font-heading mb-2">{t('label')}</p>
                     <h2 className="font-heading font-bold text-3xl text-white leading-tight whitespace-pre-line">
@@ -132,7 +132,7 @@ export default function FloatingContact() {
                   <button onClick={close} className="text-white/40 hover:text-white transition-colors mt-1"><X size={20} /></button>
                 </div>
 
-                <div className="px-8 pb-8">
+                <div className="px-5 sm:px-8 pb-5 sm:pb-8">
                   <AnimatePresence mode="wait">
 
                     {step === 'menu' && (

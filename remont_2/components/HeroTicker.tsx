@@ -35,9 +35,9 @@ export function HeroTicker({ step1, step2, step3, step4 }: Props) {
         {repeated.map((item, i) => {
           const Icon = item.Icon
           return (
-            <div key={i} className="flex items-center gap-6 pl-10 pr-4 py-6">
-              <span className="flex items-center gap-3 text-[14px] font-heading text-white/50 whitespace-nowrap tracking-wide">
-                <Icon size={16} className="text-beige/45 flex-shrink-0" />
+            <div key={i} className="flex items-center gap-4 sm:gap-6 pl-6 sm:pl-10 pr-3 sm:pr-4 py-4 sm:py-6">
+              <span className="flex items-center gap-2 sm:gap-3 text-[12px] sm:text-[14px] font-heading text-white/50 whitespace-nowrap tracking-wide">
+                <Icon size={14} className="text-beige/45 flex-shrink-0" />
                 {item.label}
               </span>
               <Sep />

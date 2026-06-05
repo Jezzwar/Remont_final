@@ -53,14 +53,14 @@ export default function Footer() {
   ] as const
 
   return (
-    <footer className="bg-graphite border-t border-white/[0.07] px-6 sm:px-10 lg:px-16 pt-14 pb-8">
-      <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+    <footer className="bg-graphite border-t border-white/[0.07] px-6 sm:px-10 lg:px-16 pt-14 pb-12 sm:pb-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-12">
 
         {/* Brand */}
-        <div className="space-y-5">
+        <div className="col-span-2 sm:col-span-2 lg:col-span-1 space-y-5">
           <div className="flex items-center">
             <div className="relative h-14 w-14 flex-shrink-0">
-              <Image src="/logo.png" alt="Remont Naprawa" fill className="object-contain" />
+              <Image src="/logo_final.png" alt="Remont Naprawa" fill className="object-contain" />
             </div>
           </div>
           <p className="text-white/40 text-sm leading-relaxed">{t('tagline')}</p>
@@ -68,7 +68,7 @@ export default function Footer() {
         </div>
 
         {/* Nav links */}
-        <div>
+        <div className="col-span-1">
           <div className="text-white/70 font-heading font-semibold text-xs uppercase tracking-widest mb-5">{t('nav_title')}</div>
           <ul className="space-y-2.5">
             {navLinks.map(({ href, key }) => (
@@ -82,7 +82,7 @@ export default function Footer() {
         </div>
 
         {/* Contact */}
-        <div>
+        <div className="col-span-1">
           <div className="text-white/70 font-heading font-semibold text-xs uppercase tracking-widest mb-5">{t('contact_title')}</div>
           <ul className="space-y-3">
             <li>
@@ -102,7 +102,7 @@ export default function Footer() {
         </div>
 
         {/* Area */}
-        <div>
+        <div className="col-span-2 sm:col-span-1">
           <div className="text-white/70 font-heading font-semibold text-xs uppercase tracking-widest mb-5">{t('area_title')}</div>
           <p className="text-white/40 text-sm leading-relaxed">{t('area_text')}</p>
         </div>
