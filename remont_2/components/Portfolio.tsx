@@ -23,11 +23,9 @@ export default async function Portfolio() {
   const images = await getPortfolioImages()
 
   return (
-    <section id="realizacje" className="bg-graphite py-16">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-6">
-        <SectionHeading label="Wybrane projekty" title={t('title')} linkText={t('see_more')} linkHref="#kontakt" />
-      </div>
-      <div className="border border-white/[0.08] rounded-2xl mx-6 sm:mx-10 lg:mx-16 overflow-hidden" id="portfolio-wrap">
+    <section id="realizacje" className="bg-graphite pt-16 pb-6 px-6 sm:px-10 lg:px-16">
+      <div className="max-w-7xl mx-auto">
+        <SectionHeading label="Wybrane projekty" title={t('title')} />
         <PortfolioCarousel images={images} />
       </div>
     </section>

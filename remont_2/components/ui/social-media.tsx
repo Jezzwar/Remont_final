@@ -6,7 +6,7 @@ export interface SocialItem {
   href: string
   ariaLabel: string
   tooltip: string
-  svgUrl: string
+  icon: React.ReactNode
   color: string
 }
 
@@ -45,11 +45,9 @@ const SocialTooltip = React.forwardRef<HTMLUListElement, SocialTooltipProps>(
                 className={cn(baseFilledStyles)}
                 style={{ backgroundColor: item.color }}
               />
-              <img
-                src={item.svgUrl}
-                alt={item.ariaLabel}
-                className={cn(baseSvgStyles)}
-              />
+              <span className={cn(baseSvgStyles, 'flex items-center justify-center')}>
+                {item.icon}
+              </span>
             </a>
             <div
               className={cn(baseTooltipStyles)}

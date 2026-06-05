@@ -19,7 +19,7 @@ export default function Services() {
   const t = useTranslations('services')
 
   return (
-    <section id="uslugi" className="px-6 sm:px-10 lg:px-16 py-20 bg-graphite">
+    <section id="uslugi" className="px-6 sm:px-10 lg:px-16 py-16 bg-surface">
       <div className="max-w-7xl mx-auto">
         <SectionHeading label="Co oferujemy" title={t('title')} />
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 border border-white/[0.08] rounded-2xl p-4">

@@ -10,11 +10,28 @@
   },
   "hero": {
     "badge": "Professional interior renovations",
-    "title": "Turnkey renovation without stress",
+    "label": "Premium renovations & interior finishing",
+    "tag_repairs": "Renovations",
+    "tag_finishing": "Finishing",
+    "tag_projects": "Projects",
+    "tag_supervision": "Supervision",
+    "tag_materials": "Materials",
+    "feat1_title": "Punctuality",
+    "feat1_desc": "We always meet agreed deadlines",
+    "feat2_title": "Transparent pricing",
+    "feat2_desc": "No hidden costs, clear terms",
+    "feat3_title": "Full service",
+    "feat3_desc": "One team, full accountability",
+    "title": "All types of\nrenovation works",
     "subtitle": "Apartment & house renovations | Warsaw",
     "description": "We take care of the entire renovation process: coordination, contractors and materials. You get a beautiful interior without chaos or stress.",
-    "cta_call": "Call: +48 XXX XXX XXX",
-    "cta_message": "Send a message"
+    "cta_call": "Call: +48 729 460 423",
+    "cta_message": "Send a message",
+    "cards_morph_title": "Transformations\nthat inspire",
+    "cards_morph_sub": "See the results of our work in projects",
+    "cards_consult_title": "Free consultation 24h",
+    "cards_consult_sub": "We'll answer your questions and recommend the best solutions",
+    "how_we_work": "How we work"
   },
   "stats": {
     "experience": "years of experience",
@@ -24,25 +41,77 @@
   },
   "services": {
     "title": "Our Services",
-    "walls": { "name": "Walls", "desc": "Painting, plastering, partition walls" },
-    "floors": { "name": "Floors", "desc": "Panels, boards, tiles, skirting" },
-    "ceilings": { "name": "Ceilings", "desc": "Suspended ceilings, built-ins, lighting" },
-    "finishing": { "name": "Finishing", "desc": "Trims, doors, finishing details" },
-    "bathrooms": { "name": "Bathrooms", "desc": "Full bathroom renovations" },
-    "kitchens": { "name": "Kitchens", "desc": "Kitchen built-ins and arrangements" },
-    "installations": { "name": "Installations", "desc": "Electrical, plumbing, ventilation" },
-    "turnkey": { "name": "Turnkey renovation", "desc": "Full project management A to Z" }
+    "walls": {
+      "name": "Walls",
+      "desc": "Painting, plastering, partition walls"
+    },
+    "floors": {
+      "name": "Floors",
+      "desc": "Panels, boards, tiles, skirting"
+    },
+    "ceilings": {
+      "name": "Ceilings",
+      "desc": "Suspended ceilings, built-ins, lighting"
+    },
+    "finishing": {
+      "name": "Finishing",
+      "desc": "Trims, doors, finishing details"
+    },
+    "bathrooms": {
+      "name": "Bathrooms",
+      "desc": "Full bathroom renovations"
+    },
+    "kitchens": {
+      "name": "Kitchens",
+      "desc": "Kitchen built-ins and arrangements"
+    },
+    "installations": {
+      "name": "Installations",
+      "desc": "Electrical, plumbing, ventilation"
+    },
+    "turnkey": {
+      "name": "Turnkey renovation",
+      "desc": "Full project management A to Z"
+    }
   },
-  "portfolio": { "title": "Portfolio", "see_more": "See more projects" },
-  "before_after": { "title": "Before / After", "before": "BEFORE", "after": "AFTER", "see_more": "See more transformations" },
+  "portfolio": {
+    "title": "Portfolio",
+    "see_more": "See more projects"
+  },
+  "before_after": {
+    "title": "Before / After",
+    "before": "BEFORE",
+    "after": "AFTER",
+    "see_more": "See more transformations"
+  },
   "process": {
     "title": "How we work",
-    "step1": { "title": "Consultation", "desc": "We learn your needs and discuss the project vision." },
-    "step2": { "title": "Quote", "desc": "We provide a transparent quote with no hidden costs." },
-    "step3": { "title": "Execution", "desc": "We carry out work according to the agreed schedule." },
-    "step4": { "title": "Handover", "desc": "We carefully inspect and hand over the finished interior." }
+    "headline": "FAQ",
+    "subtitle": "A clear process and honest communication. From the first consultation to the final handover — we've got you covered.",
+    "label": "Our process",
+    "faq_label": "Common questions",
+    "cta": "Get a quote",
+    "step1": {
+      "title": "Consultation",
+      "desc": "We learn your needs and discuss the project vision."
+    },
+    "step2": {
+      "title": "Quote",
+      "desc": "We provide a transparent quote with no hidden costs."
+    },
+    "step3": {
+      "title": "Execution",
+      "desc": "We carry out work according to the agreed schedule."
+    },
+    "step4": {
+      "title": "Handover",
+      "desc": "We carefully inspect and hand over the finished interior."
+    }
   },
-  "testimonials": { "title": "Client reviews", "see_more": "See more reviews" },
+  "testimonials": {
+    "title": "Client reviews",
+    "see_more": "See more reviews"
+  },
   "faq": {
     "title": "FAQ",
     "q1": "How long does an apartment renovation take?",
@@ -54,12 +123,14 @@
     "q4": "How does payment work?",
     "a4": "Payment in stages according to the work schedule.",
     "q5": "Do you offer a warranty?",
-    "a5": "Yes, we provide a 12-month warranty on all completed work."
+    "a5": "Yes, we provide a 12-month warranty on all completed work.",
+    "q6": "How quickly can I get a quote?",
+    "a6": "We usually prepare a quote within 24–48 hours of first contact. Just call or send a message."
   },
   "contact": {
     "title": "Ready for a change?",
     "subtitle": "Call and schedule a free consultation.",
-    "cta": "Call: +48 XXX XXX XXX",
+    "cta": "Call: +48 729 460 423",
     "form_name": "Full name",
     "form_phone": "Phone",
     "form_email": "Email (optional)",
@@ -68,6 +139,43 @@
     "form_success": "Thank you! We'll be in touch soon.",
     "form_error": "Something went wrong. Please try again."
   },
+  "modal": {
+    "label": "New inquiry",
+    "title": "START A\nPROJECT",
+    "fill_brief": "Fill in brief",
+    "quick_title": "Quick request",
+    "quick_desc": "Don't know what you need yet?",
+    "full_title": "Project request",
+    "full_desc": "Have a clear vision? Get a quote.",
+    "email_label": "Or leave your email",
+    "email_desc": "We'll contact you to discuss your project.",
+    "email_cta": "Name and email →",
+    "back": "← Back",
+    "name": "Name *",
+    "phone": "Phone *",
+    "email": "Email",
+    "rooms_placeholder": "How many rooms?",
+    "rooms_1": "1 room",
+    "rooms_2": "2 rooms",
+    "rooms_3": "3 rooms",
+    "rooms_4": "4+ rooms",
+    "rooms_house": "House",
+    "budget_placeholder": "Budget (approx.)",
+    "budget_1": "up to 30 000 zł",
+    "budget_2": "30 000 – 60 000 zł",
+    "budget_3": "60 000 – 100 000 zł",
+    "budget_4": "above 100 000 zł",
+    "message": "Describe the project...",
+    "submit": "Send request",
+    "submit_email": "Send →",
+    "success_title": "Thank you!",
+    "success_desc": "We'll be in touch soon.",
+    "error": "Sending error. Please try again.",
+    "error_phone": "Invalid phone number. Example: +48 600 123 456",
+    "error_email": "Invalid email address. Example: name@domain.com",
+    "min_1_2": "1–2 min",
+    "min_3_5": "3–5 min"
+  },
   "footer": {
     "tagline": "Turnkey apartment and house renovations. Professional, on time, stress-free.",
     "nav_title": "Navigation",
@@ -75,9 +183,9 @@
     "area_title": "Service area",
     "area_text": "Warsaw and surrounding areas: Mokotów, Wilanów, Ursynów, Wola, Bemowo and more.",
     "rights": "All rights reserved.",
-    "privacy": "Privacy policy",
-    "terms": "Terms",
-    "cookies": "Cookies"
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
   },
   "admin": {
     "photos_title": "Photo management",

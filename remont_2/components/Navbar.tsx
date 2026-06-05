@@ -11,7 +11,7 @@ export default function Navbar() {
   const locale = useLocale()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [activeId, setActiveId] = useState('uslugi')
+  const [activeId, setActiveId] = useState('')
 
   const links = [
     { id: 'uslugi',     label: t('services') },
@@ -40,6 +40,11 @@ export default function Navbar() {
   }, [])
 
   function scrollTo(id: string) {
+    if (id === 'kontakt') {
+      window.dispatchEvent(new Event('openContactModal'))
+      setOpen(false)
+      return
+    }
     const el = document.getElementById(id)
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
     setActiveId(id)
@@ -47,18 +52,14 @@ export default function Navbar() {
   }
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-500 ${
-      scrolled
-        ? 'bg-graphite border-white/10'
-        : 'bg-transparent border-transparent'
-    }`}>
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 h-[90px] flex items-center justify-between gap-4">
+    <nav className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${scrolled ? 'bg-graphite border-white/10' : 'bg-transparent border-transparent'}`}>
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 h-[90px] flex items-center justify-between relative">
 
         {/* Logo */}
-        <a href={`/${locale}`} className="flex items-center group flex-shrink-0 -ml-[calc(13%-79px)]">
+        <a href={`/${locale}`} className="flex items-center group flex-shrink-0 -ml-[10%]">
           <div className="relative h-[90px] w-[22rem] flex-shrink-0">
             <Image
-              src="/logo_new1.png"
+              src="/final.png"
               alt="Remont Naprawa Warszawa"
               fill
               className="object-contain object-left transition-transform duration-300 group-hover:scale-105"
@@ -66,8 +67,8 @@ export default function Navbar() {
           </div>
         </a>
 
-        {/* Desktop slide-tabs nav */}
-        <div className="hidden lg:flex flex-1 justify-center">
+        {/* Desktop slide-tabs nav — absolutely centered */}
+        <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2">
           <SlideTabs
             tabs={links}
             activeId={activeId}
@@ -76,10 +77,10 @@ export default function Navbar() {
         </div>
 
         {/* Right */}
-        <div className="flex items-center gap-3 flex-shrink-0">
+        <div className="flex items-center gap-3 flex-shrink-0 -mr-[10%]">
           <LanguageSwitcher />
           <a
-            href="tel:+48000000000"
+            href="tel:+48729460423"
             className="btn-shimmer hidden sm:flex items-center gap-2 bg-beige text-graphite text-sm font-semibold px-4 py-2 rounded-full hover:bg-beige-light transition-colors duration-200"
           >
             <Phone size={13} />
@@ -111,8 +112,8 @@ export default function Navbar() {
               {l.label}
             </button>
           ))}
-          <a href="tel:+48000000000" className="flex items-center gap-2 text-beige font-semibold mt-2 pt-3 border-t border-white/10">
-            <Phone size={14} /> +48 XXX XXX XXX
+          <a href="tel:+48729460423" className="flex items-center gap-2 text-beige font-semibold mt-2 pt-3 border-t border-white/10">
+            <Phone size={14} /> +48 729 460 423
           </a>
         </div>
       </div>

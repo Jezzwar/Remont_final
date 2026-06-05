@@ -86,7 +86,8 @@ TabItem.displayName = 'TabItem'
 function Cursor({ position }: { position: Position }) {
   return (
     <motion.li
-      animate={position}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      animate={position as any}
       transition={{ type: 'spring', stiffness: 400, damping: 35 }}
       className="absolute z-0 top-1 h-[calc(100%-8px)] rounded-full bg-beige pointer-events-none"
     />

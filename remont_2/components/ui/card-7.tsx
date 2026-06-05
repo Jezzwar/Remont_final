@@ -17,7 +17,6 @@ export function InteractiveProductCard({
   icon,
   title,
   description,
-  tag,
   ...props
 }: InteractiveProductCardProps) {
   const cardRef = React.useRef<HTMLDivElement>(null)
@@ -63,26 +62,21 @@ export function InteractiveProductCard({
         style={{ transform: 'translateZ(-20px) scale(1.12)' }}
       />
 
-      {/* Gradient overlay — dark bottom, brand tint */}
+      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
       <div className="absolute inset-0 bg-graphite/20" />
 
       {/* Content */}
       <div className="absolute inset-0 p-4 flex flex-col justify-end" style={{ transform: 'translateZ(40px)' }}>
-
-        {/* Icon top-right */}
         {icon && (
           <div className="absolute top-4 right-4 w-9 h-9 rounded-xl bg-black/40 border border-white/10 flex items-center justify-center text-beige backdrop-blur-sm">
             {icon}
           </div>
         )}
-
-        {/* Text block — bottom */}
         <div className="rounded-xl border border-white/10 bg-black/40 backdrop-blur-md p-4">
           <h3 className="text-sm font-bold text-white leading-tight mb-1">{title}</h3>
           <p className="text-xs text-white/55 leading-relaxed">{description}</p>
         </div>
-
       </div>
     </div>
   )

@@ -30,7 +30,7 @@ export default function ContactForm() {
           <SectionHeading label="Bezpłatna wycena" title={t('title')} />
           <p className="text-white/55 leading-relaxed">{t('subtitle')}</p>
           <a
-            href="tel:+48000000000"
+            href="tel:+48729460423"
             className="btn-shimmer inline-flex items-center gap-2 bg-beige text-graphite font-semibold px-6 py-3 rounded-full hover:bg-beige-light transition-colors duration-200 shadow-[0_4px_24px_rgba(216,195,165,0.2)]"
           >
             <Phone size={16} /> {t('cta')}

@@ -9,7 +9,7 @@ export default function Process() {
   const t = useTranslations('process')
 
   return (
-    <section id="o-nas" className="px-6 sm:px-10 lg:px-16 py-20 bg-graphite">
+    <section id="o-nas" className="px-6 sm:px-10 lg:px-16 py-20 bg-surface">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
 
         <div className="lg:w-64 flex-shrink-0">

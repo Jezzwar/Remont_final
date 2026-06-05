@@ -10,11 +10,28 @@
   },
   "hero": {
     "badge": "Profesjonalne remonty wnętrz",
-    "title": "Remont pod klucz bez stresu",
+    "label": "Premium remonty i wykończenia wnętrz",
+    "tag_repairs": "Remonty",
+    "tag_finishing": "Wykończenia",
+    "tag_projects": "Projekty",
+    "tag_supervision": "Nadzór",
+    "tag_materials": "Materiały",
+    "feat1_title": "Terminowość",
+    "feat1_desc": "Dotrzymujemy ustalonych terminów",
+    "feat2_title": "Transparentna wycena",
+    "feat2_desc": "Zero ukrytych kosztów, jasne zasady",
+    "feat3_title": "Kompleksowa obsługa",
+    "feat3_desc": "Jeden zespół, pełna odpowiedzialność",
+    "title": "Wszelkie\nprace\nremontowe",
     "subtitle": "Remonty mieszkań i domów | Warszawa",
     "description": "Bierzemy na siebie cały proces remontu: organizację, wykonawców i materiały. Ty zyskujesz piękne wnętrze bez chaosu i bez stresu.",
-    "cta_call": "Zadzwoń: +48 XXX XXX XXX",
-    "cta_message": "Wyślij wiadomość"
+    "cta_call": "Zadzwoń: +48 729 460 423",
+    "cta_message": "Wyślij wiadomość",
+    "cards_morph_title": "Metamorfozy,\nktóre inspirują",
+    "cards_morph_sub": "Zobacz efekty naszej pracy w realizacjach",
+    "cards_consult_title": "Bezpłatna konsultacja 24h",
+    "cards_consult_sub": "Odpowiemy na pytania i doradzimy najlepsze rozwiązania",
+    "how_we_work": "Jak pracujemy"
   },
   "stats": {
     "experience": "lat doświadczenia",
@@ -24,14 +41,38 @@
   },
   "services": {
     "title": "Nasze Usługi",
-    "walls": { "name": "Ściany", "desc": "Malowanie, gładzie, ściany działowe" },
-    "floors": { "name": "Podłogi", "desc": "Panele, deski, płytki, listwy" },
-    "ceilings": { "name": "Sufity", "desc": "Sufity podwieszane, zabudowy, oświetlenie" },
-    "finishing": { "name": "Wykończenia", "desc": "Listwy, drzwi, detale wykończeniowe" },
-    "bathrooms": { "name": "Łazienki", "desc": "Kompleksowe remonty łazienek" },
-    "kitchens": { "name": "Kuchnie", "desc": "Zabudowy i aranżacje kuchenne" },
-    "installations": { "name": "Instalacje", "desc": "Elektryka, hydraulika, wentylacja" },
-    "turnkey": { "name": "Remont pod klucz", "desc": "Kompleksowa realizacja od A do Z" }
+    "walls": {
+      "name": "Ściany",
+      "desc": "Malowanie, gładzie, ściany działowe"
+    },
+    "floors": {
+      "name": "Podłogi",
+      "desc": "Panele, deski, płytki, listwy"
+    },
+    "ceilings": {
+      "name": "Sufity",
+      "desc": "Sufity podwieszane, zabudowy, oświetlenie"
+    },
+    "finishing": {
+      "name": "Wykończenia",
+      "desc": "Listwy, drzwi, detale wykończeniowe"
+    },
+    "bathrooms": {
+      "name": "Łazienki",
+      "desc": "Kompleksowe remonty łazienek"
+    },
+    "kitchens": {
+      "name": "Kuchnie",
+      "desc": "Zabudowy i aranżacje kuchenne"
+    },
+    "installations": {
+      "name": "Instalacje",
+      "desc": "Elektryka, hydraulika, wentylacja"
+    },
+    "turnkey": {
+      "name": "Remont pod klucz",
+      "desc": "Kompleksowa realizacja od A do Z"
+    }
   },
   "portfolio": {
     "title": "Realizacje",
@@ -45,10 +86,27 @@
   },
   "process": {
     "title": "Jak pracujemy",
-    "step1": { "title": "Konsultacja", "desc": "Poznajemy Twoje potrzeby i omawiamy wizję projektu." },
-    "step2": { "title": "Wycena", "desc": "Przedstawiamy przejrzystą wycenę bez ukrytych kosztów." },
-    "step3": { "title": "Realizacja", "desc": "Realizujemy prace zgodnie z ustalonym harmonogramem." },
-    "step4": { "title": "Odbiór", "desc": "Dokładnie odbieramy prace i przekazujemy gotowe wnętrze." }
+    "headline": "FAQ",
+    "subtitle": "Przejrzysty proces i uczciwa komunikacja. Od pierwszej konsultacji do ostatecznego odbioru — jesteśmy z Tobą na każdym etapie.",
+    "label": "Nasz proces",
+    "faq_label": "Częste pytania",
+    "cta": "Uzyskaj wycenę",
+    "step1": {
+      "title": "Konsultacja",
+      "desc": "Poznajemy Twoje potrzeby i omawiamy wizję projektu."
+    },
+    "step2": {
+      "title": "Wycena",
+      "desc": "Przedstawiamy przejrzystą wycenę bez ukrytych kosztów."
+    },
+    "step3": {
+      "title": "Realizacja",
+      "desc": "Realizujemy prace zgodnie z ustalonym harmonogramem."
+    },
+    "step4": {
+      "title": "Odbiór",
+      "desc": "Dokładnie odbieramy prace i przekazujemy gotowe wnętrze."
+    }
   },
   "testimonials": {
     "title": "Opinie klientów",
@@ -65,12 +123,14 @@
     "q4": "Jak wygląda płatność?",
     "a4": "Płatność etapami zgodnie z harmonogramem prac.",
     "q5": "Czy oferujecie gwarancję na prace?",
-    "a5": "Tak, udzielamy 12 miesięcy gwarancji na wszystkie wykonane prace."
+    "a5": "Tak, udzielamy 12 miesięcy gwarancji na wszystkie wykonane prace.",
+    "q6": "Jak szybko mogę uzyskać wycenę?",
+    "a6": "Wycenę przygotowujemy zazwyczaj w ciągu 24–48 godzin od pierwszego kontaktu. Wystarczy zadzwonić lub wysłać wiadomość."
   },
   "contact": {
     "title": "Gotowy na zmianę?",
     "subtitle": "Zadzwoń i umów bezpłatną konsultację.",
-    "cta": "Zadzwoń: +48 XXX XXX XXX",
+    "cta": "Zadzwoń: +48 729 460 423",
     "form_name": "Imię i nazwisko",
     "form_phone": "Telefon",
     "form_email": "Email (opcjonalnie)",
@@ -79,6 +139,43 @@
     "form_success": "Dziękujemy! Odezwiemy się wkrótce.",
     "form_error": "Coś poszło nie tak. Spróbuj ponownie."
   },
+  "modal": {
+    "label": "Nowe zapytanie",
+    "title": "ROZPOCZNIJ\nPROJEKT",
+    "fill_brief": "Wypełnij brief",
+    "quick_title": "Szybkie zapytanie",
+    "quick_desc": "Nie wiesz jeszcze czego potrzebujesz?",
+    "full_title": "Zapytanie o projekt",
+    "full_desc": "Masz jasną wizję? Uzyskaj wycenę.",
+    "email_label": "Lub zostaw swój email",
+    "email_desc": "Skontaktujemy się, by omówić Twój projekt.",
+    "email_cta": "Imię i email →",
+    "back": "← Wróć",
+    "name": "Imię *",
+    "phone": "Telefon *",
+    "email": "Email",
+    "rooms_placeholder": "Ile pokoi?",
+    "rooms_1": "1 pokój",
+    "rooms_2": "2 pokoje",
+    "rooms_3": "3 pokoje",
+    "rooms_4": "4+ pokoi",
+    "rooms_house": "Dom",
+    "budget_placeholder": "Budżet (orientacyjnie)",
+    "budget_1": "do 30 000 zł",
+    "budget_2": "30 000 – 60 000 zł",
+    "budget_3": "60 000 – 100 000 zł",
+    "budget_4": "powyżej 100 000 zł",
+    "message": "Opisz projekt...",
+    "submit": "Wyślij zapytanie",
+    "submit_email": "Wyślij →",
+    "success_title": "Dziękujemy!",
+    "success_desc": "Skontaktujemy się wkrótce.",
+    "error": "Błąd wysyłania. Spróbuj ponownie.",
+    "error_phone": "Nieprawidłowy numer telefonu. Przykład: +48 600 123 456",
+    "error_email": "Nieprawidłowy adres email. Przykład: jan@kowalski.pl",
+    "min_1_2": "1–2 min",
+    "min_3_5": "3–5 min"
+  },
   "footer": {
     "tagline": "Remonty mieszkań i domów pod klucz. Profesjonalnie, terminowo i bez stresu.",
     "nav_title": "Nawigacja",
@@ -86,9 +183,9 @@
     "area_title": "Obszar działania",
     "area_text": "Warszawa i okolice: Mokotów, Wilanów, Ursynów, Wola, Bemowo i inne dzielnice.",
     "rights": "Wszelkie prawa zastrzeżone.",
+    "legal": "Legal",
     "privacy": "Polityka prywatności",
-    "terms": "Regulamin",
-    "cookies": "Cookies"
+    "terms": "Warunki usługi"
   },
   "admin": {
     "photos_title": "Zarządzanie zdjęciami",

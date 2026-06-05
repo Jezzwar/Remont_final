@@ -9,7 +9,7 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   // Protect /admin routes
-  const adminMatch = pathname.match(/^\/(pl|en|ru)\/admin(?!\/login)/)
+  const adminMatch = pathname.match(/^\/(pl|en)\/admin(?!\/login)/)
   if (adminMatch) {
     const response = NextResponse.next()
     const supabase = createServerClient(

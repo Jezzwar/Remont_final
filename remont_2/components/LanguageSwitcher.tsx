@@ -4,7 +4,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { useState, useRef, useEffect } from 'react'
 import { ChevronDown } from 'lucide-react'
 
-const LOCALES = ['pl', 'en', 'ru'] as const
+const LOCALES = ['pl', 'en'] as const
 
 export default function LanguageSwitcher() {
   const locale = useLocale()

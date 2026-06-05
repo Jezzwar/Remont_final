@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+::selection {
+  background: #D8C3A5;
+  color: #0D0D0D;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-25%); }
+}
+
+@keyframes tetrisFade {
+  from { opacity: 0.15; }
+  to   { opacity: 1; }
+}
+
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -20,6 +35,11 @@
 @keyframes glow-pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(216,195,165,0); }
   50%       { box-shadow: 0 0 32px 4px rgba(216,195,165,0.18); }
+}
+
+@keyframes x-slider {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 0.75rem)); }
 }
 
 @keyframes border-spin {
@@ -42,6 +62,10 @@
   .animate-fade-up-5 { animation: fade-up 0.7s 0.5s cubic-bezier(0.16,1,0.3,1) both; }
 
   .animate-fade-in { animation: fade-in 0.6s ease both; }
+
+  .animate-x-slider {
+    animation: x-slider 50s linear infinite;
+  }
 
   .animate-glow-pulse {
     animation: glow-pulse 3s ease-in-out infinite;
