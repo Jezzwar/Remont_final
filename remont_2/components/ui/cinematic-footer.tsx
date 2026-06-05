@@ -132,7 +132,7 @@ export function CinematicFooter() {
 
             {/* Logo */}
             <div className="relative h-10 w-10 flex-shrink-0">
-              <Image src="/logo.png" alt="Remont Naprawa" fill className="object-contain" />
+              <Image src="/logo.PNG" alt="Remont Naprawa" fill className="object-contain" />
             </div>
 
             {/* Nav */}

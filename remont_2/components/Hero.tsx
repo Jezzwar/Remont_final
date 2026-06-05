@@ -12,7 +12,7 @@ export default async function Hero() {
   const tp = await getTranslations('process')
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-graphite flex flex-col">
+    <section className="relative w-full min-h-screen overflow-hidden bg-graphite">
       <Image src="/hero_high.jpg" alt="Hero" fill className="object-cover object-center" priority />
       <div className="absolute inset-0 bg-graphite/55" />
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-graphite to-transparent" />
@@ -25,46 +25,48 @@ export default async function Hero() {
       />
 
       {/* Main content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-between px-5 sm:px-12 lg:px-16 xl:px-20 pt-[80px] pb-[72px] sm:pb-0 sm:justify-center">
-        <div className="w-full max-w-[1400px] mx-auto flex items-center gap-10 xl:gap-14 sm:h-full">
+      <div className="absolute inset-0 flex flex-col justify-between px-5 sm:px-12 lg:px-16 xl:px-20 pt-[78px] pb-[68px] sm:justify-center sm:pt-0 sm:pb-0">
+        <div className="w-full max-w-[1400px] mx-auto flex items-start sm:items-center gap-10 xl:gap-14 h-full sm:h-auto">
 
           {/* ── Left column ── */}
-          <div className="flex flex-col flex-1 min-w-0 justify-between sm:justify-start sm:gap-0">
+          <div className="flex flex-col flex-1 min-w-0 h-full sm:h-auto justify-between sm:justify-start sm:gap-0">
 
             {/* Heading */}
-            <HeroHeading text={t('title')} />
+            <div>
+              <HeroHeading text={t('title')} />
 
-            {/* Subtitle */}
-            <p className="text-white/60 text-[14px] sm:text-[15px] leading-relaxed mt-3 sm:mt-5 sm:max-w-[520px]">
-              {t('description')}
-            </p>
+              {/* Subtitle */}
+              <p className="text-white/60 text-[14px] sm:text-[15px] leading-relaxed mt-3 sm:mt-5 sm:max-w-[520px]">
+                {t('description')}
+              </p>
 
-            {/* Buttons */}
-            <div className="mt-5 sm:mt-7">
-              <HeroButtons ctaCall={t('cta_call')} ctaMessage={t('cta_message')} />
+              {/* Buttons */}
+              <div className="mt-5 sm:mt-7">
+                <HeroButtons ctaCall={t('cta_call')} ctaMessage={t('cta_message')} />
+              </div>
+
+              {/* Review badge — desktop only */}
+              <div className="hidden sm:block mt-4">
+                <HeroReviewBadge />
+              </div>
             </div>
 
-            {/* Mobile stats row */}
-            <div className="sm:hidden mt-6 grid grid-cols-3 gap-3 border-t border-white/[0.1] pt-5">
+            {/* Mobile stats row — pushes to bottom */}
+            <div className="sm:hidden grid grid-cols-3 gap-3 border-t border-white/[0.1] pt-4 mt-auto">
               {[
                 { value: '250+', label: ts('projects') },
-                { value: '98%', label: ts('satisfaction') },
-                { value: '30', label: ts('experience') },
+                { value: '98%',  label: ts('satisfaction') },
+                { value: '30',   label: ts('experience') },
               ].map(({ value, label }) => (
                 <div key={value} className="text-center">
-                  <div className="font-body font-bold text-white text-[1.5rem] leading-none">{value}</div>
-                  <p className="text-white/35 text-[10px] leading-tight mt-1">{label}</p>
+                  <div className="font-body font-bold text-white text-[1.4rem] leading-none">{value}</div>
+                  <p className="text-white/40 text-[10px] leading-tight mt-1">{label}</p>
                 </div>
               ))}
             </div>
-
-            {/* Review badge — desktop only */}
-            <div className="hidden sm:block mt-4">
-              <HeroReviewBadge />
-            </div>
           </div>
 
-          {/* ── Right column — stats card (desktop) ── */}
+          {/* ── Right column — stats card (desktop only) ── */}
           <div className="hidden lg:flex flex-shrink-0 w-[440px] xl:w-[460px] self-stretch py-10">
             <HeroStatCards
               projects={ts('projects')}
@@ -77,7 +79,6 @@ export default async function Hero() {
               consultSub={t('cards_consult_sub')}
             />
           </div>
-
         </div>
       </div>
     </section>
