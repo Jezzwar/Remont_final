@@ -34,10 +34,6 @@ export default async function Hero() {
 
             <HeroHeading text={t('title')} />
 
-            <p className="text-white/60 text-[14px] sm:text-[15px] leading-relaxed mt-3 sm:mt-5 sm:max-w-[520px]">
-              {t('description')}
-            </p>
-
             <div className="mt-5 sm:mt-7">
               <HeroButtons ctaCall={t('cta_call')} ctaMessage={t('cta_message')} />
             </div>
