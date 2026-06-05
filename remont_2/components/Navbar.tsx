@@ -57,7 +57,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <a href={`/${locale}`} className="flex items-center group flex-shrink-0">
-          <div className="relative h-[60px] sm:h-[80px] w-[195px] sm:w-[280px]">
+          <div className="relative h-[70px] sm:h-[80px] w-[220px] sm:w-[280px]">
             <Image
               src="/final.png"
               alt="Remont Naprawa Warszawa"

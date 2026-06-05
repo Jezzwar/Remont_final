@@ -131,8 +131,8 @@ export function CinematicFooter() {
           <div className="max-w-7xl mx-auto flex flex-col items-center gap-5 sm:flex-row sm:justify-between">
 
             {/* Logo */}
-            <div className="relative h-9 w-[160px] flex-shrink-0">
-              <Image src="/final.png" alt="Remont Naprawa" fill className="object-contain object-center sm:object-left" />
+            <div className="relative h-10 w-10 flex-shrink-0">
+              <Image src="/logo.png" alt="Remont Naprawa" fill className="object-contain" />
             </div>
 
             {/* Nav */}

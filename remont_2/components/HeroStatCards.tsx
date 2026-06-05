@@ -50,7 +50,7 @@ export function HeroStatCards({
           ].map(({ Icon, value, label, big }) => (
             <div key={value}>
               <div className="text-white/22 mb-2.5"><Icon size={14} /></div>
-              <div className={`font-heading font-black text-white leading-none ${big ? 'text-[1.9rem]' : 'text-[1.45rem]'}`}>
+              <div className={`font-body font-bold text-white leading-none ${big ? 'text-[1.9rem]' : 'text-[1.45rem]'}`}>
                 {value}
               </div>
               <p className="text-white/30 text-[10px] leading-tight mt-2 whitespace-nowrap">{label}</p>
