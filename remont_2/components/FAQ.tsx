@@ -22,7 +22,7 @@ export default function FAQ() {
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
 
         <div className="lg:w-64 flex-shrink-0">
-          <SectionHeading label="Masz pytania" title={t('title')} />
+          <SectionHeading label={t('label')} title={t('title')} />
         </div>
 
         <div className="flex-1 flex flex-col lg:flex-row gap-6 border border-white/[0.08] rounded-2xl p-5">

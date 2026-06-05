@@ -2,6 +2,7 @@
 
 import { BarChart2, CalendarDays, Star, Headphones, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 interface Props {
   projects: string
@@ -17,6 +18,7 @@ export function HeroMobileWidget({
   projects, experience, satisfaction,
   morphTitle, consultTitle, consultSub,
 }: Props) {
+  const t = useTranslations('hero')
 
   function scrollToSection(id: string) {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -35,7 +37,7 @@ export function HeroMobileWidget({
         style={{ background: 'rgba(15,13,11,0.50)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)' }}
       >
         <p className="text-white/20 text-[8px] uppercase tracking-[0.3em] font-heading mb-3">
-          Zaufanie poparte liczbami
+          {t('stats_trust')}
         </p>
         <div className="grid grid-cols-3 gap-3">
           {[
@@ -64,11 +66,11 @@ export function HeroMobileWidget({
           <Image src="/hero_high.jpg" alt="" fill className="object-cover grayscale brightness-50 group-hover:grayscale-0 transition-all duration-500" />
           <div className="absolute inset-0 bg-graphite/40" />
           <div className="relative z-10 p-3 flex flex-col justify-between h-full">
-            <p className="text-white/40 text-[8px] uppercase tracking-[0.25em] font-heading">Ostatnia realizacja</p>
+            <p className="text-white/40 text-[8px] uppercase tracking-[0.25em] font-heading">{t('stats_last_project')}</p>
             <div>
               <p className="text-white font-heading font-bold text-[11px] leading-snug line-clamp-2">{morphTitle}</p>
               <span className="inline-flex items-center gap-1 mt-1.5 text-[9px] font-heading text-white/45 group-hover:text-beige/70 transition-colors">
-                Zobacz <ArrowRight size={8} />
+                {t('stats_see_more')} <ArrowRight size={8} />
               </span>
             </div>
           </div>

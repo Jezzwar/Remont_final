@@ -1,6 +1,7 @@
 'use client'
 
 import { ArrowRight } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 interface Props {
   projects: string
@@ -10,6 +11,8 @@ interface Props {
 }
 
 export function HeroStatsRow({ projects, experience, satisfaction, area }: Props) {
+  const t = useTranslations('hero')
+
   function scrollTo(id: string) {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
@@ -53,7 +56,7 @@ export function HeroStatsRow({ projects, experience, satisfaction, area }: Props
         <p className="text-white/35 text-[9px] uppercase tracking-[0.25em] font-heading mb-2">Proces</p>
         <div className="font-bricolage font-black text-[3.5rem] text-white leading-none">4</div>
         <div className="flex items-end justify-between mt-2">
-          <p className="text-white/40 font-heading text-[12px]">Etapy realizacji</p>
+          <p className="text-white/40 font-heading text-[12px]">{t('stats_process')}</p>
           <p className="text-beige/60 text-[11px] font-heading">Zero chaosu</p>
         </div>
       </div>

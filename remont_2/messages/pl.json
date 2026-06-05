@@ -31,7 +31,13 @@
     "cards_morph_sub": "Zobacz efekty naszej pracy w realizacjach",
     "cards_consult_title": "Bezpłatna konsultacja 24h",
     "cards_consult_sub": "Odpowiemy na pytania i doradzimy najlepsze rozwiązania",
-    "how_we_work": "Jak pracujemy"
+    "how_we_work": "Jak pracujemy",
+    "stats_trust": "Zaufanie poparte liczbami",
+    "stats_last_project": "Ostatnia realizacja",
+    "stats_see_more": "Zobacz więcej",
+    "stats_see_project": "Zobacz realizację",
+    "stats_book_call": "Umów rozmowę",
+    "stats_process": "Etapy realizacji"
   },
   "stats": {
     "experience": "lat doświadczenia",
@@ -114,6 +120,7 @@
   },
   "faq": {
     "title": "FAQ",
+    "label": "Masz pytania",
     "q1": "Ile trwa remont mieszkania?",
     "a1": "Czas zależy od zakresu prac. Standardowy remont 50m² trwa 4–6 tygodni.",
     "q2": "Czy pomogliście w doborze materiałów?",

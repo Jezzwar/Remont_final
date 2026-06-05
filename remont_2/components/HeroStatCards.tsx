@@ -2,6 +2,7 @@
 
 import { BarChart2, CalendarDays, Star, Headphones, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 interface Props {
   projects: string
@@ -18,6 +19,7 @@ export function HeroStatCards({
   projects, experience, satisfaction,
   morphTitle, morphSub, consultTitle, consultSub,
 }: Props) {
+  const t = useTranslations('hero')
 
   function scrollToSection(id: string) {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -40,7 +42,7 @@ export function HeroStatCards({
       {/* Stats row */}
       <div className="px-7 pt-6 pb-6 border-b border-white/[0.07]">
         <p className="text-white/20 text-[9px] uppercase tracking-[0.3em] font-heading mb-5">
-          Zaufanie poparte liczbami
+          {t('stats_trust')}
         </p>
         <div className="grid grid-cols-3 gap-5">
           {[
@@ -65,9 +67,9 @@ export function HeroStatCards({
         className="w-full flex-1 px-7 py-5 border-b border-white/[0.07] text-left group flex flex-col justify-center"
       >
         <div className="flex items-center justify-between mb-4">
-          <p className="text-white/20 text-[9px] uppercase tracking-[0.3em] font-heading">Ostatnia realizacja</p>
+          <p className="text-white/20 text-[9px] uppercase tracking-[0.3em] font-heading">{t('stats_last_project')}</p>
           <span className="text-white/28 text-[10px] font-heading group-hover:text-beige transition-colors flex items-center gap-1">
-            Zobacz więcej <ArrowRight size={10} />
+            {t('stats_see_more')} <ArrowRight size={10} />
           </span>
         </div>
         <div className="flex gap-4 items-start">
@@ -78,7 +80,7 @@ export function HeroStatCards({
             <p className="text-white font-heading font-bold text-[13px] leading-snug">{morphTitle}</p>
             <p className="text-white/32 text-[11px] mt-1.5 leading-snug">{morphSub}</p>
             <span className="inline-block mt-3 text-[10px] font-heading text-white/45 border border-white/[0.11] rounded-full px-3 py-[5px] group-hover:border-beige/40 group-hover:text-beige/70 transition-colors">
-              Zobacz realizację
+              {t('stats_see_project')}
             </span>
           </div>
         </div>
@@ -97,7 +99,7 @@ export function HeroStatCards({
           <p className="text-white/30 text-[11px] mt-0.5 leading-snug">{consultSub}</p>
         </div>
         <span className="text-white/28 text-[11px] font-heading flex items-center gap-1 flex-shrink-0 group-hover:text-beige transition-colors whitespace-nowrap">
-          Umów rozmowę <ArrowRight size={10} />
+          {t('stats_book_call')} <ArrowRight size={10} />
         </span>
       </button>
 

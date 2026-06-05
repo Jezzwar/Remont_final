@@ -31,7 +31,13 @@
     "cards_morph_sub": "See the results of our work in projects",
     "cards_consult_title": "Free consultation 24h",
     "cards_consult_sub": "We'll answer your questions and recommend the best solutions",
-    "how_we_work": "How we work"
+    "how_we_work": "How we work",
+    "stats_trust": "Trusted by numbers",
+    "stats_last_project": "Latest project",
+    "stats_see_more": "See more",
+    "stats_see_project": "View project",
+    "stats_book_call": "Book a call",
+    "stats_process": "Process steps"
   },
   "stats": {
     "experience": "years of experience",
@@ -114,6 +120,7 @@
   },
   "faq": {
     "title": "FAQ",
+    "label": "Have questions",
     "q1": "How long does an apartment renovation take?",
     "a1": "It depends on the scope. A standard 50m² renovation takes 4–6 weeks.",
     "q2": "Do you help with material selection?",
