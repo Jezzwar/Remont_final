@@ -2,6 +2,7 @@
 const dishes = [
   {
     id: 1, name: "Ramen z Kurczakiem",
+    category: "RAMEN",
     desc: "Bogaty bulion z korzeniem imbiru, udko z kurczaka w sosie teriyaki, pszeniczne makarony, jajko na twardo, sałata Romano, suszone algi nori, marynowany imbir...",
     price: 42, weight: "Przybliżona waga: 580 g",
     image: "img/kurcz.png", // <- WSTAW ŚCIEŻKĘ DO ZDJĘCIA (np. "images/ramen-kurczak.png")
@@ -14,6 +15,7 @@ const dishes = [
   },
   {
     id: 2, name: "Miso Ramen z Krewetkami",
+    category: "RAMEN",
     desc: "Pszeniczne makarony, krewetki, słodka papryka, baby corn, groszek w strąkach, sos Curry, azjatycki sos Pesto, olej aromatyczny, bulion Tom Yam, edamame...",
     price: 48, weight: "Przybliżona waga: 645 g",
     image: "img/second.png",
@@ -26,6 +28,7 @@ const dishes = [
   },
   {
     id: 3, name: "Tonkotsu Ramen",
+    category: "RAMEN",
     desc: "Kremowy bulion wieprzowy gotowany 12 godzin, chashu wieprzowe, jajko marynowane ajitsuke tamago, bambusowe pędy menma, grzyby shiitake, makaron ramen...",
     price: 52, weight: "Przybliżona waga: 620 g",
     image: "img/third.png",
@@ -38,6 +41,7 @@ const dishes = [
   },
   {
     id: 5, name: "Gyoza z Wieprzowiną",
+    category: "GYOZA",
     desc: "Ręcznie lepione pierożki gyoza z mieloną wieprzowiną, kapustą pekińską, imbirem i czosnkiem. Smażone na złoto, podane z dipem ponzu i sos rayu...",
     price: 32, weight: "Przybliżona waga: 320 g (8 szt.)",
     image: "img/fourth.png",
@@ -50,6 +54,7 @@ const dishes = [
   },
   {
     id: 6, name: "Tempura z Krewetek",
+    category: "TEMPURA",
     desc: "Krewetki ebi w puszystym cieście tempura, smażone do chrupkości, podane z lekkim bulionem tentsuyu i rzodkwią daikon. Podawane z ryżem lub bez...",
     price: 45, weight: "Przybliżona waga: 380 g (6 szt.)",
     image: "img/fifth.png",
@@ -62,6 +67,7 @@ const dishes = [
   },
   {
     id: 7, name: "Sushi Moriawase",
+    category: "SUSHI",
     desc: "Zestaw 12 sztuk sushi: nigiri z łososiem, tuńczykiem i krewetką, maki z ogórkiem i awokado, uramaki spicy tuna. Podawane z wasabi, imbirem i sosem sojowym...",
     price: 68, weight: "Przybliżona waga: 420 g (12 szt.)",
     image: "img/sixth.png",
@@ -127,6 +133,7 @@ dishes.forEach((dish, i) => {
       <img class="dish-img" src="${dish.image}" alt="${dish.name}" loading="lazy" onerror="this.style.background='#F0C4BA'">
     </div>
     <div class="dish-body">
+      <div class="dish-category">${dish.category || ''}</div>
       <div class="dish-name">${dish.name}</div>
       <div class="dish-desc">${dish.desc}</div>
       <div class="dish-foot">
@@ -200,12 +207,48 @@ document.getElementById('mAddBtn').addEventListener('click', () => {
   closeModal();
 });
 
+const addonSheet = document.getElementById('addonSheet');
+const addonSheetOverlay = document.getElementById('addonSheetOverlay');
+const addonSheetGrid = document.getElementById('addonSheetGrid');
+const addonSheetTitle = document.getElementById('addonSheetTitle');
+
+function openAddonSheet(tabKey, label) {
+  const srcGrid = document.getElementById('grid' + tabKey.charAt(0).toUpperCase() + tabKey.slice(1));
+  addonSheetGrid.innerHTML = srcGrid.innerHTML;
+  addonSheetTitle.textContent = label;
+  addonSheet.style.display = 'block';
+  requestAnimationFrame(() => {
+    addonSheet.classList.add('open');
+    addonSheetOverlay.classList.add('open');
+  });
+}
+function closeAddonSheet() {
+  addonSheet.classList.remove('open');
+  addonSheetOverlay.classList.remove('open');
+  setTimeout(() => { addonSheet.style.display = 'none'; }, 350);
+}
+document.getElementById('addonSheetClose').addEventListener('click', closeAddonSheet);
+addonSheetOverlay.addEventListener('click', closeAddonSheet);
+
+document.getElementById('addonSheetConfirm').addEventListener('click', () => {
+  if (!activeDish) return;
+  const addons = [...addonSheetGrid.querySelectorAll('input[type="checkbox"]:checked')]
+    .map(cb => ({ name: cb.value, price: parseFloat(cb.dataset.price) }));
+  addToCart(activeDish, addons);
+  closeAddonSheet();
+  closeModal();
+});
+
+const tabLabels = { dodatki: 'Dodatki', napoje: 'Napoje', mochi: 'Mochi' };
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
     document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    if (window.innerWidth <= 900) {
+      openAddonSheet(btn.dataset.tab, tabLabels[btn.dataset.tab]);
+    }
   });
 });
 
@@ -319,9 +362,13 @@ function closeMobileMenu() {
 }
 
 // ─── NAV SCROLL ──────────────────────────────────────────────────
-window.addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('scrolled', scrollY > 40);
-});
+const navEl = document.getElementById('nav');
+const navSentinel = document.createElement('div');
+navSentinel.style.cssText = 'position:absolute;top:80px;left:0;height:1px;width:1px;pointer-events:none;';
+document.body.prepend(navSentinel);
+new IntersectionObserver(([e]) => {
+  navEl.classList.toggle('scrolled', !e.isIntersecting);
+}).observe(navSentinel);
 
 // ─── SCROLL REVEAL ───────────────────────────────────────────────
 const revealObs = new IntersectionObserver(entries => {

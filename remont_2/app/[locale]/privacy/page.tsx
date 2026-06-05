@@ -217,8 +217,6 @@ const content = {
 export default async function PrivacyPage({ params }: Props) {
   const { locale } = await params
   const c = content[locale as keyof typeof content] ?? content.pl
-  const home = `/${locale}`
-
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-graphite border-b border-white/[0.08] h-[70px] flex items-center px-6 sm:px-10 lg:px-16">

@@ -42,8 +42,9 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#menu"    onclick="closeMobileMenu()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Menu</a>
-<a href="#" onclick="closeMobileMenu();openReservation();return false;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Rezerwacje</a>
+  <a href="#menu" onclick="closeMobileMenu()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Menu</a>
+  <a href="#dostawa" onclick="closeMobileMenu()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Dostawa</a>
+  <a href="#" onclick="closeMobileMenu();openReservation();return false;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Rezerwacje</a>
 </div>
 
 <!-- HERO -->
@@ -59,7 +60,7 @@
     <div class="hero-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg> Otwarte dziś · 11:00 – 22:00</div>
     <h1 class="hero-title">TWOJE<br><em>AZJATYCKIE</em><br>MARZENIE</h1>
     <p class="hero-sub">Witamy w miejscu, gdzie każdy talerz staje się prawdziwym dziełem sztuki. Autentyczne smaki, świeże składniki, gotowane z miłością.</p>
-    <div class="hero-btns">
+    <div class="hero-btns hero-btns-desktop">
       <a href="#menu" class="btn-red">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
         ZŁÓŻ ZAMÓWIENIE
@@ -67,12 +68,19 @@
     </div>
   </div>
 
+  <div class="hero-btns hero-btns-mobile" style="display:none">
+    <a href="#menu" class="btn-red">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      ZŁÓŻ ZAMÓWIENIE
+    </a>
+  </div>
+
   <div class="hero-visual">
     <div class="hero-ring hero-ring-1"></div>
     <div class="hero-ring hero-ring-2"></div>
     <img
       class="hero-img"
-      src="img/hero.png"
+      src="img/hero1.PNG"
       alt="Łosoś podnoszony pałeczkami"
       onerror="this.src='';this.style.cssText='width:440px;height:440px;background:#F0C4BA;border-radius:50%;display:block'"
     >
@@ -342,6 +350,24 @@
     </button>
   </div>
 </div>
+
+<!-- ADDON BOTTOM SHEET (mobile) -->
+<div class="addon-sheet" id="addonSheet">
+  <div class="addon-sheet-head">
+    <div class="addon-sheet-title" id="addonSheetTitle"></div>
+    <button class="addon-sheet-close" id="addonSheetClose">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="addon-grid" id="addonSheetGrid"></div>
+  <div class="addon-sheet-foot">
+    <button class="btn-red" id="addonSheetConfirm" style="width:100%;justify-content:center;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      DODAJ DO KOSZYKA
+    </button>
+  </div>
+</div>
+<div class="addon-sheet-overlay" id="addonSheetOverlay"></div>
 
 <!-- TOAST -->
 <div class="toast" id="toast">
