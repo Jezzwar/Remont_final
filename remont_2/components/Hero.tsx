@@ -5,6 +5,7 @@ import { HeroButtons } from './HeroButtons'
 import { HeroReviewBadge } from './HeroReviewBadge'
 import { HeroStatCards } from './HeroStatCards'
 import { HeroTicker } from './HeroTicker'
+import { HeroMobileWidget } from './HeroMobileWidget'
 
 export default async function Hero() {
   const t = await getTranslations('hero')
@@ -24,11 +25,11 @@ export default async function Hero() {
         step4={tp('step4.title')}
       />
 
-      {/* Main content — vertically centered */}
+      {/* Main content */}
       <div className="absolute inset-0 flex items-center px-5 sm:px-12 lg:px-16 xl:px-20 pt-[70px] pb-[56px]">
         <div className="w-full max-w-[1400px] mx-auto flex items-center gap-10 xl:gap-14">
 
-          {/* ── Left column ── */}
+          {/* Left column */}
           <div className="flex flex-col flex-1 min-w-0">
 
             <HeroHeading text={t('title')} />
@@ -41,18 +42,17 @@ export default async function Hero() {
               <HeroButtons ctaCall={t('cta_call')} ctaMessage={t('cta_message')} />
             </div>
 
-            {/* Mobile stats — directly under buttons, no gap */}
-            <div className="sm:hidden grid grid-cols-3 gap-2 border-t border-white/[0.12] pt-4 mt-5">
-              {[
-                { value: '250+', label: ts('projects') },
-                { value: '98%',  label: ts('satisfaction') },
-                { value: '30',   label: ts('experience') },
-              ].map(({ value, label }) => (
-                <div key={value} className="text-center">
-                  <div className="font-body font-bold text-white text-[1.35rem] leading-none">{value}</div>
-                  <p className="text-white/40 text-[10px] leading-tight mt-1">{label}</p>
-                </div>
-              ))}
+            {/* Mobile widget — adapted right column */}
+            <div className="sm:hidden mt-5">
+              <HeroMobileWidget
+                projects={ts('projects')}
+                experience={ts('experience')}
+                satisfaction={ts('satisfaction')}
+                morphTitle={t('cards_morph_title')}
+                morphSub={t('cards_morph_sub')}
+                consultTitle={t('cards_consult_title')}
+                consultSub={t('cards_consult_sub')}
+              />
             </div>
 
             {/* Review badge — desktop only */}
@@ -61,7 +61,7 @@ export default async function Hero() {
             </div>
           </div>
 
-          {/* ── Right column (desktop only) ── */}
+          {/* Right column — desktop only */}
           <div className="hidden lg:flex flex-shrink-0 w-[440px] xl:w-[460px] self-stretch py-10">
             <HeroStatCards
               projects={ts('projects')}

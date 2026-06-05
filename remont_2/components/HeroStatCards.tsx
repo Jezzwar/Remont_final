@@ -72,7 +72,7 @@ export function HeroStatCards({
         </div>
         <div className="flex gap-4 items-start">
           <div className="relative w-[110px] h-[82px] rounded-xl overflow-hidden flex-shrink-0">
-            <Image src="/hero_high.png" alt="" fill className="object-cover grayscale brightness-70 group-hover:grayscale-0 transition-all duration-500" />
+            <Image src="/hero_high.jpg" alt="" fill className="object-cover grayscale brightness-70 group-hover:grayscale-0 transition-all duration-500" />
           </div>
           <div className="flex-1 min-w-0">
             <p className="text-white font-heading font-bold text-[13px] leading-snug">{morphTitle}</p>
