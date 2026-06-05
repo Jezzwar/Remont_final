@@ -3,12 +3,14 @@
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { HelpCircle, Plus, Minus, ArrowRight } from 'lucide-react'
+import type { FaqEntry } from '@/lib/faq'
 
-const pairs = [['q1', 'a1'], ['q2', 'a2'], ['q3', 'a3'], ['q4', 'a4'], ['q5', 'a5'], ['q6', 'a6'], ['q7', 'a7']] as const
+interface Props {
+  faqItems: FaqEntry[]
+}
 
-export default function ProcessAndFAQ() {
+export default function ProcessAndFAQ({ faqItems }: Props) {
   const tp = useTranslations('process')
-  const tf = useTranslations('faq')
   const [active, setActive] = useState(0)
 
   return (
@@ -37,8 +39,8 @@ export default function ProcessAndFAQ() {
             <span className="text-beige text-[10px] uppercase tracking-[0.2em] font-heading">{tp('faq_label')}</span>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12">
-            {pairs.map(([q, a], i) => (
-              <div key={q} className="border-b border-white/[0.06] last:border-0">
+            {faqItems.map((item, i) => (
+              <div key={i} className="border-b border-white/[0.06] last:border-0">
                 <button
                   onClick={() => setActive(active === i ? -1 : i)}
                   className="w-full flex items-center gap-4 py-4 text-left group"
@@ -47,7 +49,7 @@ export default function ProcessAndFAQ() {
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <span className={`flex-1 text-sm font-heading font-medium transition-colors ${active === i ? 'text-white' : 'text-white/55 group-hover:text-white/80'}`}>
-                    {tf(q)}
+                    {item.question}
                   </span>
                   <span className="flex-shrink-0 text-beige/50">
                     {active === i ? <Minus size={14} /> : <Plus size={14} />}
@@ -55,7 +57,7 @@ export default function ProcessAndFAQ() {
                 </button>
                 {active === i && (
                   <p className="text-white/45 text-sm leading-relaxed pb-4 pl-8">
-                    {tf(a)}
+                    {item.answer}
                   </p>
                 )}
               </div>

@@ -3,7 +3,7 @@ import Hero from '@/components/Hero'
 import Services from '@/components/Services'
 import Portfolio from '@/components/Portfolio'
 import Testimonials from '@/components/Testimonials'
-import ProcessAndFAQ from '@/components/ProcessAndFAQ'
+import ProcessAndFAQWrapper from '@/components/ProcessAndFAQWrapper'
 import { CinematicFooter } from '@/components/ui/cinematic-footer'
 
 const Divider = () => (
@@ -23,7 +23,7 @@ export default function HomePage() {
         <Portfolio />
         <Testimonials />
         <Divider />
-        <ProcessAndFAQ />
+        <ProcessAndFAQWrapper />
       </div>
 
       {/* Footer reveals underneath as you scroll to the bottom */}

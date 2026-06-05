@@ -3,7 +3,7 @@ import { createSupabaseBrowser } from '@/lib/supabase-browser'
 import { useRouter, useParams } from 'next/navigation'
 import Link from 'next/link'
 
-export default function AdminNav({ active }: { active: 'photos' | 'leads' }) {
+export default function AdminNav({ active }: { active: 'photos' | 'leads' | 'faq' }) {
   const router = useRouter()
   const params = useParams()
   const locale = params.locale as string
@@ -28,6 +28,12 @@ export default function AdminNav({ active }: { active: 'photos' | 'leads' }) {
           className={`text-sm px-4 py-2 rounded-lg transition-colors ${active === 'leads' ? 'bg-beige/20 text-beige' : 'text-white/60 hover:text-white'}`}
         >
           Zapytania
+        </Link>
+        <Link
+          href={`/${locale}/admin/faq`}
+          className={`text-sm px-4 py-2 rounded-lg transition-colors ${active === 'faq' ? 'bg-beige/20 text-beige' : 'text-white/60 hover:text-white'}`}
+        >
+          FAQ
         </Link>
       </div>
       <button onClick={handleLogout} className="text-white/50 hover:text-white text-sm transition-colors">
