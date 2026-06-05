@@ -24,49 +24,44 @@ export default async function Hero() {
         step4={tp('step4.title')}
       />
 
-      {/* Main content */}
-      <div className="absolute inset-0 flex flex-col justify-between px-5 sm:px-12 lg:px-16 xl:px-20 pt-[78px] pb-[68px] sm:justify-center sm:pt-0 sm:pb-0">
-        <div className="w-full max-w-[1400px] mx-auto flex items-start sm:items-center gap-10 xl:gap-14 h-full sm:h-auto">
+      {/* Main content — vertically centered */}
+      <div className="absolute inset-0 flex items-center px-5 sm:px-12 lg:px-16 xl:px-20 pt-[70px] pb-[56px]">
+        <div className="w-full max-w-[1400px] mx-auto flex items-center gap-10 xl:gap-14">
 
           {/* ── Left column ── */}
-          <div className="flex flex-col flex-1 min-w-0 h-full sm:h-auto justify-between sm:justify-start sm:gap-0">
+          <div className="flex flex-col flex-1 min-w-0">
 
-            {/* Heading */}
-            <div>
-              <HeroHeading text={t('title')} />
+            <HeroHeading text={t('title')} />
 
-              {/* Subtitle */}
-              <p className="text-white/60 text-[14px] sm:text-[15px] leading-relaxed mt-3 sm:mt-5 sm:max-w-[520px]">
-                {t('description')}
-              </p>
+            <p className="text-white/60 text-[14px] sm:text-[15px] leading-relaxed mt-3 sm:mt-5 sm:max-w-[520px]">
+              {t('description')}
+            </p>
 
-              {/* Buttons */}
-              <div className="mt-5 sm:mt-7">
-                <HeroButtons ctaCall={t('cta_call')} ctaMessage={t('cta_message')} />
-              </div>
-
-              {/* Review badge — desktop only */}
-              <div className="hidden sm:block mt-4">
-                <HeroReviewBadge />
-              </div>
+            <div className="mt-5 sm:mt-7">
+              <HeroButtons ctaCall={t('cta_call')} ctaMessage={t('cta_message')} />
             </div>
 
-            {/* Mobile stats row — pushes to bottom */}
-            <div className="sm:hidden grid grid-cols-3 gap-3 border-t border-white/[0.1] pt-4 mt-auto">
+            {/* Mobile stats — directly under buttons, no gap */}
+            <div className="sm:hidden grid grid-cols-3 gap-2 border-t border-white/[0.12] pt-4 mt-5">
               {[
                 { value: '250+', label: ts('projects') },
                 { value: '98%',  label: ts('satisfaction') },
                 { value: '30',   label: ts('experience') },
               ].map(({ value, label }) => (
                 <div key={value} className="text-center">
-                  <div className="font-body font-bold text-white text-[1.4rem] leading-none">{value}</div>
+                  <div className="font-body font-bold text-white text-[1.35rem] leading-none">{value}</div>
                   <p className="text-white/40 text-[10px] leading-tight mt-1">{label}</p>
                 </div>
               ))}
             </div>
+
+            {/* Review badge — desktop only */}
+            <div className="hidden sm:block mt-4">
+              <HeroReviewBadge />
+            </div>
           </div>
 
-          {/* ── Right column — stats card (desktop only) ── */}
+          {/* ── Right column (desktop only) ── */}
           <div className="hidden lg:flex flex-shrink-0 w-[440px] xl:w-[460px] self-stretch py-10">
             <HeroStatCards
               projects={ts('projects')}
