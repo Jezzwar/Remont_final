@@ -8,14 +8,14 @@ interface Props {
   experience: string
   satisfaction: string
   morphTitle: string
-  morphSub: string
+  morphSub?: string
   consultTitle: string
   consultSub: string
 }
 
 export function HeroMobileWidget({
   projects, experience, satisfaction,
-  morphTitle, morphSub, consultTitle, consultSub,
+  morphTitle, consultTitle, consultSub,
 }: Props) {
 
   function scrollToSection(id: string) {
