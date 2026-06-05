@@ -26,7 +26,7 @@ export default async function Hero() {
       />
 
       {/* Main content */}
-      <div className="absolute inset-0 flex items-center px-5 sm:px-12 lg:px-16 xl:px-20 pt-[70px] pb-[56px]">
+      <div className="absolute inset-0 flex items-center px-5 sm:px-12 lg:px-16 xl:px-20 pt-[70px] pb-[56px] -translate-y-[5%] sm:translate-y-0">
         <div className="w-full max-w-[1400px] mx-auto flex items-center gap-10 xl:gap-14">
 
           {/* Left column */}
