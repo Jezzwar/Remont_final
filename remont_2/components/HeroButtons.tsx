@@ -1,14 +1,14 @@
 'use client'
 
-import { Phone } from 'lucide-react'
+import { Phone, Mail } from 'lucide-react'
 import { AnimatedButton } from './ui/animated-button'
 
 interface HeroButtonsProps {
   ctaCall: string
-  ctaMessage?: string
+  ctaMessage: string
 }
 
-export function HeroButtons({ ctaCall }: HeroButtonsProps) {
+export function HeroButtons({ ctaCall, ctaMessage }: HeroButtonsProps) {
   return (
     <div className="flex gap-3">
       <AnimatedButton
@@ -17,6 +17,14 @@ export function HeroButtons({ ctaCall }: HeroButtonsProps) {
       >
         <Phone size={14} />
         {ctaCall}
+      </AnimatedButton>
+
+      <AnimatedButton
+        variant="outline"
+        onClick={() => window.dispatchEvent(new Event('openContactModal'))}
+      >
+        <Mail size={14} />
+        {ctaMessage}
       </AnimatedButton>
     </div>
   )
