@@ -128,15 +128,15 @@ export function CinematicFooter() {
 
         {/* Bottom bar */}
         <div className="relative z-10 border-t border-white/[0.07] px-6 sm:px-10 lg:px-16 py-6">
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5">
+          <div className="max-w-7xl mx-auto flex flex-col items-center gap-5 sm:flex-row sm:justify-between">
 
             {/* Logo */}
-            <div className="relative h-8 w-36 flex-shrink-0">
-              <Image src="/logo.png" alt="Remont Naprawa" fill className="object-contain object-left" />
+            <div className="relative h-9 w-[160px] flex-shrink-0">
+              <Image src="/final.png" alt="Remont Naprawa" fill className="object-contain object-center sm:object-left" />
             </div>
 
             {/* Nav */}
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-1">
+            <div className="flex flex-wrap justify-center gap-x-5 gap-y-1.5">
               {navLinks.map(({ href, key }) => (
                 <a key={key} href={href} className="text-white/30 hover:text-beige text-xs transition-colors duration-200 font-heading uppercase tracking-wider">
                   {tn(key)}
@@ -144,13 +144,13 @@ export function CinematicFooter() {
               ))}
             </div>
 
-            {/* Right */}
+            {/* Social */}
             <div className="flex items-center gap-5">
-              <SocialTooltip items={socialLinks} className="justify-end" />
+              <SocialTooltip items={socialLinks} className="justify-center sm:justify-end" />
             </div>
           </div>
 
-          <div className="max-w-7xl mx-auto mt-4 flex flex-wrap items-center justify-between gap-3">
+          <div className="max-w-7xl mx-auto mt-4 flex flex-col sm:flex-row items-center sm:justify-between gap-2 text-center sm:text-left">
             <p className="text-white/15 text-[10px] tracking-widest">© 2026 CRT Agency. All rights reserved. Operated by Cortallis Sp. z o.o.</p>
             <div className="flex gap-4">
               {([['legal', '/legal'], ['privacy', '/privacy'], ['terms', '/terms']] as const).map(([k, href]) => (

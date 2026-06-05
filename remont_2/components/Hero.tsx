@@ -20,7 +20,7 @@ export default async function Hero() {
 
   return (
     <section className="relative w-full min-h-screen min-h-[600px] overflow-hidden bg-graphite">
-      <Image src="/hero_high.png" alt="Hero" fill className="object-cover object-center" priority />
+      <Image src="/hero_high.jpg" alt="Hero" fill className="object-cover object-center" priority />
       <div className="absolute inset-0 bg-graphite/60" />
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-graphite to-transparent" />
 
