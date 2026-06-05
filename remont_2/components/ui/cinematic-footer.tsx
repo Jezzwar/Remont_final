@@ -88,19 +88,15 @@ export function CinematicFooter() {
   }, [])
 
   return (
-    <div
-      ref={wrapperRef}
-      className="relative w-full"
-      style={{ height: '100svh', clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
-    >
-      <footer className="fixed bottom-0 left-0 w-full flex flex-col justify-between overflow-hidden bg-[#0a0a0a]" style={{ height: '100svh' }}>
+    <div ref={wrapperRef} className="relative w-full">
+      <footer className="relative w-full flex flex-col bg-[#0a0a0a] overflow-hidden">
 
         {/* Ambient glow */}
         <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[50vh] rounded-full bg-beige/[0.04] blur-[120px]" />
 
 
-        {/* Center content */}
-        <div ref={headingRef} className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 text-center">
+        {/* Center content — full viewport height */}
+        <div ref={headingRef} className="relative z-10 flex flex-col items-center justify-center px-6 text-center" style={{ minHeight: '100svh' }}>
           <p className="text-beige text-[10px] uppercase tracking-[0.3em] font-heading mb-5">
             + Remont Naprawa
           </p>
