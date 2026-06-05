@@ -7,6 +7,11 @@
   color: #0D0D0D;
 }
 
+::-webkit-selection {
+  background: #D8C3A5;
+  color: #0D0D0D;
+}
+
 /* Prevent iOS auto-zoom on input focus (requires font-size >= 16px) */
 @media (max-width: 768px) {
   input, textarea, select {

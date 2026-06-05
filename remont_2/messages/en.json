@@ -125,7 +125,9 @@
     "q5": "Do you offer a warranty?",
     "a5": "Yes, we provide a 12-month warranty on all completed work.",
     "q6": "How quickly can I get a quote?",
-    "a6": "We usually prepare a quote within 24–48 hours of first contact. Just call or send a message."
+    "a6": "We usually prepare a quote within 24–48 hours of first contact. Just call or send a message.",
+    "q7": "How much does renovation cost per square meter?",
+    "a7": "Finishing work starts from 1,100 PLN per m². For a 60 m² apartment, that's approximately 66,000 PLN (60 × 1,100 PLN). The final price depends on the scope, material standard, and property specifics — that's why we always offer a free quote."
   },
   "contact": {
     "title": "Ready for a change?",

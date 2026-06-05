@@ -9,6 +9,8 @@ const pairs = [
   ['q3', 'a3'],
   ['q4', 'a4'],
   ['q5', 'a5'],
+  ['q6', 'a6'],
+  ['q7', 'a7'],
 ] as const
 
 export default function FAQ() {
