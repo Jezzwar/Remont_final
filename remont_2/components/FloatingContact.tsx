@@ -34,7 +34,7 @@ export default function FloatingContact() {
     spinControls.set({ rotate: 0 })
   }
   const [status, setStatus] = useState<Status>('idle')
-  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '', rooms: '', budget: '' })
+  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '', sqm: '' })
   const [fieldError, setFieldError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -76,18 +76,12 @@ export default function FloatingContact() {
     </div>
   )
 
-  const roomsOptions = [
-    { id: '1', label: t('rooms_1') },
-    { id: '2', label: t('rooms_2') },
-    { id: '3', label: t('rooms_3') },
-    { id: '4+', label: t('rooms_4') },
-  ]
-
-  const budgetOptions = [
-    { id: 'do 30k', label: t('budget_1') },
-    { id: '30-60k', label: t('budget_2') },
-    { id: '60-100k', label: t('budget_3') },
-    { id: '100k+', label: t('budget_4') },
+  const sqmOptions = [
+    { id: 'do 30', label: t('sqm_1') },
+    { id: '30-50', label: t('sqm_2') },
+    { id: '50-80', label: t('sqm_3') },
+    { id: '80-120', label: t('sqm_4') },
+    { id: '120+', label: t('sqm_5') },
   ]
 
   return (
@@ -177,14 +171,14 @@ export default function FloatingContact() {
                             <button type="button" onClick={() => setStep('menu')} className="text-white/40 text-xs hover:text-white mb-2 flex items-center gap-1">{t('back')}</button>
                             {field('name', t('name'))}
                             {field('phone', t('phone'), 'tel')}
-                            <ComboBox fullWidth onSelectionChange={key => setForm(f => ({ ...f, rooms: String(key ?? '') }))}>
+                            <ComboBox fullWidth onSelectionChange={key => setForm(f => ({ ...f, sqm: String(key ?? '') }))}>
                               <ComboBox.InputGroup>
-                                <ComboInput fullWidth placeholder={t('rooms_placeholder')} />
+                                <ComboInput fullWidth placeholder={t('sqm_placeholder')} />
                                 <ComboBox.Trigger />
                               </ComboBox.InputGroup>
                               <ComboBox.Popover>
                                 <ListBox>
-                                  {roomsOptions.map(o => (
+                                  {sqmOptions.map(o => (
                                     <ListBox.Item key={o.id} id={o.id} textValue={o.label}>
                                       {o.label}<ListBox.ItemIndicator />
                                     </ListBox.Item>
@@ -208,14 +202,14 @@ export default function FloatingContact() {
                             {field('name', t('name'))}
                             {field('phone', t('phone'), 'tel')}
                             {field('email', t('email'), 'email')}
-                            <ComboBox fullWidth onSelectionChange={key => setForm(f => ({ ...f, budget: String(key ?? '') }))}>
+                            <ComboBox fullWidth onSelectionChange={key => setForm(f => ({ ...f, sqm: String(key ?? '') }))}>
                               <ComboBox.InputGroup>
-                                <ComboInput fullWidth placeholder={t('budget_placeholder')} />
+                                <ComboInput fullWidth placeholder={t('sqm_placeholder')} />
                                 <ComboBox.Trigger />
                               </ComboBox.InputGroup>
                               <ComboBox.Popover>
                                 <ListBox>
-                                  {budgetOptions.map(o => (
+                                  {sqmOptions.map(o => (
                                     <ListBox.Item key={o.id} id={o.id} textValue={o.label}>
                                       {o.label}<ListBox.ItemIndicator />
                                     </ListBox.Item>

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { HelpCircle, Plus, Minus, ArrowRight } from 'lucide-react'
 
-const pairs = [['q1', 'a1'], ['q2', 'a2'], ['q3', 'a3'], ['q4', 'a4'], ['q5', 'a5'], ['q6', 'a6']] as const
+const pairs = [['q1', 'a1'], ['q2', 'a2'], ['q3', 'a3'], ['q4', 'a4'], ['q5', 'a5'], ['q6', 'a6'], ['q7', 'a7']] as const
 
 export default function ProcessAndFAQ() {
   const tp = useTranslations('process')

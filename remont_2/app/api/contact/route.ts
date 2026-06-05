@@ -43,7 +43,9 @@ export async function POST(req: NextRequest) {
   const name    = sanitize(raw.name, 100)
   const phone   = sanitize(raw.phone, 30)
   const email   = sanitize(raw.email, 200)
-  const message = sanitize(raw.message, 2000)
+  const sqm     = sanitize(raw.sqm, 30)
+  const userMsg = sanitize(raw.message, 2000)
+  const message = sqm ? `Площадь: ${sqm}\n\n${userMsg}`.trim() : userMsg
 
   if (!name || !phone) {
     return NextResponse.json({ error: 'Name and phone are required' }, { status: 400 })
